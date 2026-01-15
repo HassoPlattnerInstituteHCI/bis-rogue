@@ -62,7 +62,7 @@
      <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/FootSteps.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MoveToPosition.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/WindowsSpeechIn.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/03/Player.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Player.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/RoomElement.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Settings.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/SpeechSpeedScript.cs" />
@@ -99,7 +99,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/IntroManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroPause.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/DialogManager.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/04/DumbEnemy.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/05/DumbEnemy.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBehaviour.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ActivateObstaclesSphere.cs" />
@@ -131,6 +131,9 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MovingObstacleManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/CenterForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/LinuxSpeechOut.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/04/PlayerSimple.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/06/RoomSpawnRandom.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/06/SmartEnemy.cs" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/Path.compute" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/ProjectSettings/ProjectVersion.txt" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/PathShader.compute" />

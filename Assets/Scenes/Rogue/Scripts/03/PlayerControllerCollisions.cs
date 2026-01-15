@@ -15,13 +15,11 @@ public class PlayerControllerCollisions : MonoBehaviour
     [Range(0.05f, 0.5f)]
     public float stepCooldown = 0.15f; // Zeit zwischen Schritten beim Halten
 
-    private CharacterController controller;
-
     private float nextStepTime = 0f; // Zeitpunkt des nächsten erlaubten Schritts
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        
     }
     void Update()
     {

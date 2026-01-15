@@ -1,0 +1,90 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using UnityEngine;
+
+public class RoomSpawnRandom : MonoBehaviour
+{
+    public GameObject enemyPrefab;
+    public GameObject foodPrefab;
+
+    [SerializeField]
+    [Range(0, 100)]
+    public int enemySpawnProbability = 50;
+
+    private List<GameObject> rooms = new List<GameObject>();
+
+    void Start()
+    {
+        FindAllRooms();
+        SpawnRandomly();
+    }
+
+    void Update()
+    {
+
+    }
+
+
+    void FindAllRooms()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).CompareTag("Room"))
+            {
+                rooms.Add(transform.GetChild(i).gameObject);
+            }
+
+        }
+    }
+
+
+    void SpawnRandomly()
+    {
+        // Implement random spawning logic here
+        foreach (GameObject room in rooms)
+        {
+            // add food to each room
+            AddFoodToRoom(room);
+            // add enemy based on probability
+            if (Random.Range(0, 100) < enemySpawnProbability)
+            {
+                AddEnemyToRoom(room);
+            }
+            // add intro speech to non-spawn rooms
+        }
+    }
+
+    // add food item to the room at a random position
+    void AddFoodToRoom(GameObject room)
+    {
+        var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
+        Vector3 foodPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
+
+        Instantiate(foodPrefab, foodPosition, Quaternion.identity);
+    }
+
+    // add an enemy to the room at a random position
+    void AddEnemyToRoom(GameObject room)
+    {
+        var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
+        Vector3 enemyPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
+
+        var enemyGO = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
+        var enemy = enemyGO.GetComponent<SmartEnemy>();
+        enemy.SetRoomBounds(new Vector2(room.transform.position.x, room.transform.position.z),
+                new Vector2(roomSize.x, roomSize.z));
+    }
+
+    // calculate a random position within the room bounds
+    (float posX, float posZ, Vector3 roomSize) GetRandomPositionInRoom(GameObject room)
+    {
+        Vector3 roomSize = room.GetComponent<Renderer>().bounds.size;
+        Vector3 roomPosition = room.transform.position;
+
+        float xPos = Random.Range(roomPosition.x - roomSize.x / 2 + 0.5f, roomPosition.x + roomSize.x / 2 - 0.5f);
+        float zPos = Random.Range(roomPosition.z - roomSize.z / 2 + 0.5f, roomPosition.z + roomSize.z / 2 - 0.5f);
+
+        return (xPos, zPos, roomSize);
+    }
+}
