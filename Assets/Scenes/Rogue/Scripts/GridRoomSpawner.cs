@@ -7,39 +7,45 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+public class RoomData
+{
+    public int id;
+    public float roomSizeX = 0f;
+    public float roomSizeY = 0f;
+
+    public int col;
+    public int row;
+
+    public bool connected = false;  // Whether room is connected to the dungeon network
+
+    public RoomData(int id)
+    {
+        this.id = id;
+    }
+    public RoomData(int id, float roomSizeX, float roomSizeY, int col, int row)
+    {
+        this.id = id;
+        this.roomSizeX = roomSizeX;
+        this.roomSizeY = roomSizeY;
+        this.col = col;
+        this.row = row;
+    }
+}
+
+
 public class GridRoomSpawner : MonoBehaviour
 {
-    public class RoomData
-    {
-        public int id;
-        public float roomSizeX = 0f;
-        public float roomSizeY = 0f;
 
-        public int col;
-        public int row;
 
-        public bool connected = false;  // Whether room is connected to the dungeon network
+    // Insprector Settings ======================================================
+    [Header("Grid Settings")]
 
-        public RoomData(int id)
-        {
-            this.id = id;
-        }
-        public RoomData(int id, float roomSizeX, float roomSizeY, int col, int row)
-        {
-            this.id = id;
-            this.roomSizeX = roomSizeX;
-            this.roomSizeY = roomSizeY;
-            this.col = col;
-            this.row = row;
-        }
-    }
-
-    public GameObject plane;      // The Plane GameObject in the scene
+    public GameObject plane;      // The world plane on which to place the grid
 
     // Grid dimensions - defines the number of cells for room placement
     public int rows = 3;
     public int columns = 3;
-   
+
 
     // Room Inspector Settings
     [Header("Room Settings")]
@@ -51,18 +57,21 @@ public class GridRoomSpawner : MonoBehaviour
     public float maxRoomSize = 0.7f;
 
     [Range(0, 100)]
-    public int properbiltyOfRoomInCell = 80;
+    public int probabilityOfRoomInCell = 80;
 
     [Header("Spawn Settings")]
-    public bool forceSpawnInTopCenter = false;
+    public bool spawnRoomInTopCenter = false; // Whether to force a spawn room in the top center cell
 
     // Corridor Inspector Settings
     [Header("Corridor Settings")]
-    public GameObject corridorPrefab;  
+    public GameObject corridorPrefab;
 
     [Range(0.01f, 0.20f)]
-    public float corridorWidth = 0.05f;  
-    
+    public float corridorWidth = 0.05f;
+
+
+    //======================================================
+
     private List<RoomData> rooms = new List<RoomData>();
 
     // Calculated cell dimensions based on plane size and grid dimensions
@@ -88,7 +97,7 @@ public class GridRoomSpawner : MonoBehaviour
         this.gameObject.AddComponent<PantoCompoundCollider>();
         this.gameObject.GetComponent<PantoCompoundCollider>().onLower = false;
     }
-    
+
     void CalculateGridFromPlane()
     {
         if (plane == null)
@@ -111,7 +120,7 @@ public class GridRoomSpawner : MonoBehaviour
         int currentRoomId = 1;
 
         // Optionally force a spawn room in the first row, center column
-        if (forceSpawnInTopCenter)
+        if (spawnRoomInTopCenter)
         {
             int spawnCol = columns / 2;
             int spawnRow = 0;
@@ -128,7 +137,7 @@ public class GridRoomSpawner : MonoBehaviour
             {
                 if (grid[row, col] == 0)
                 {
-                    if (UnityEngine.Random.Range(0, 100) < properbiltyOfRoomInCell)
+                    if (UnityEngine.Random.Range(0, 100) < probabilityOfRoomInCell)
                     {
                         CreateRoomAt(row, col, currentRoomId, currentRoomId == 1);
                         currentRoomId++;
@@ -202,7 +211,7 @@ public class GridRoomSpawner : MonoBehaviour
                 continue;
             }
 
-            connectNeighbor(room, neighborRoomId.Value);
+            ConnectNeighbor(room, neighborRoomId.Value);
             room.connected = true;
         }
     }
@@ -236,7 +245,7 @@ public class GridRoomSpawner : MonoBehaviour
         return FindConnectedNeighbor(roomId, startCol, startRow, maxSearchRadius + 1);
     }
 
-    private void connectNeighbor(RoomData room, int roomIdNeighbor)
+    private void ConnectNeighbor(RoomData room, int roomIdNeighbor)
     {
         var neighborRoom = rooms.FirstOrDefault(x => x.id == roomIdNeighbor);
         if (neighborRoom == null)
@@ -295,7 +304,7 @@ public class GridRoomSpawner : MonoBehaviour
         corridor.transform.localScale = scale;
     }
 
-    
+
 
     public Vector3 GetWorldPosition(int x, int y)
     {
@@ -310,7 +319,4 @@ public class GridRoomSpawner : MonoBehaviour
 
         return new Vector3(originX + x * cellWidth, 0, originZ + y * cellHeight);
     }
-
-    
-    
 }
