@@ -30,8 +30,7 @@ public class RoomManager : MonoBehaviour
 
     async Task Start()
     {
-        await Task.Delay(100); // wait a frame to ensure rooms are created
-        AddRooms();
+        FindAllRooms();
         Debug.Log("Number of rooms: " + rooms.Count);
         CreateRoomObsticles();
         await Task.Delay(500);
@@ -152,15 +151,15 @@ public class RoomManager : MonoBehaviour
     }
 
     // find all rooms by checking child objects with "Room" tag
-    void AddRooms()
+    void FindAllRooms()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (transform.GetChild(i).CompareTag("Room"))
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.CompareTag("Room") && child.GetComponent<Room>() != null)
             {
-                rooms.Add(transform.GetChild(i).gameObject);
+                rooms.Add(child);
             }
-
         }
     }
     async Task MovePlayerToSpawn(Vector3 spawnPosition)

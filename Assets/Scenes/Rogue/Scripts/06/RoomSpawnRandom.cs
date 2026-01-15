@@ -30,11 +30,11 @@ public class RoomSpawnRandom : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (transform.GetChild(i).CompareTag("Room"))
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.CompareTag("Room") && child.GetComponent<Room>() != null)
             {
-                rooms.Add(transform.GetChild(i).gameObject);
+                rooms.Add(child);
             }
-
         }
     }
 

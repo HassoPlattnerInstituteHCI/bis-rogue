@@ -53,12 +53,15 @@ public class GridRoomSpawner : MonoBehaviour
     [Range(0, 100)]
     public int properbiltyOfRoomInCell = 80;
 
+    [Header("Spawn Settings")]
+    public bool forceSpawnInTopCenter = false;
+
     // Corridor Inspector Settings
     [Header("Corridor Settings")]
     public GameObject corridorPrefab;  
 
-    [Range(0.05f, 1.0f)]
-    public float corridorWidth = 0.3f;  
+    [Range(0.01f, 0.20f)]
+    public float corridorWidth = 0.05f;  
     
     private List<RoomData> rooms = new List<RoomData>();
 
@@ -106,6 +109,19 @@ public class GridRoomSpawner : MonoBehaviour
     public void CreateRooms()
     {
         int currentRoomId = 1;
+
+        // Optionally force a spawn room in the first row, center column
+        if (forceSpawnInTopCenter)
+        {
+            int spawnCol = columns / 2;
+            int spawnRow = 0;
+            if (spawnCol >= 0 && spawnCol < columns && grid[spawnRow, spawnCol] == 0)
+            {
+                CreateRoomAt(spawnRow, spawnCol, currentRoomId, true);
+                currentRoomId++;
+            }
+        }
+
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
@@ -114,25 +130,23 @@ public class GridRoomSpawner : MonoBehaviour
                 {
                     if (UnityEngine.Random.Range(0, 100) < properbiltyOfRoomInCell)
                     {
-                        float roomSizeX = UnityEngine.Random.Range(minRoomSize, maxRoomSize) * cellWidth;
-                        float roomSizeY = UnityEngine.Random.Range(minRoomSize, maxRoomSize) * cellHeight;
-
-                        var roomData = new RoomData(currentRoomId, roomSizeX, roomSizeY, col, row);
-                        if (currentRoomId == 1)
-                        {
-                            AddRoomToMap(roomData, true); // First room is spawn room
-                        }else
-                        {
-                            AddRoomToMap(roomData);
-                        }
-                        
-                        rooms.Add(roomData);
-                        grid[row, col] = currentRoomId;
+                        CreateRoomAt(row, col, currentRoomId, currentRoomId == 1);
                         currentRoomId++;
                     }
                 }
             }
         }
+    }
+
+    private void CreateRoomAt(int row, int col, int roomId, bool isSpawnRoom)
+    {
+        float roomSizeX = UnityEngine.Random.Range(minRoomSize, maxRoomSize) * cellWidth;
+        float roomSizeY = UnityEngine.Random.Range(minRoomSize, maxRoomSize) * cellHeight;
+
+        var roomData = new RoomData(roomId, roomSizeX, roomSizeY, col, row);
+        AddRoomToMap(roomData, isSpawnRoom);
+        rooms.Add(roomData);
+        grid[row, col] = roomId;
     }
     private void AddRoomToMap(RoomData roomData, bool isSpawnRoom = false)
     {
@@ -179,37 +193,22 @@ public class GridRoomSpawner : MonoBehaviour
         for (int i = 1; i < rooms.Count; i++)
         {
             RoomData room = rooms[i];
-            
-            // Search for an already connected neighbor (recursion in nextNeighbor automatically increases radius)
-            var neighbors = nextNeighbor(room.id, room.col, room.row, 1);
-            if (neighbors == null || neighbors.Count == 0)
-                continue;
 
-            // Find an already connected neighbor
-            int neighborRoomId = -1;
-            foreach (int neighborId in neighbors)
+            // Find the nearest already connected neighbor (search radius grows recursively)
+            int? neighborRoomId = FindConnectedNeighbor(room.id, room.col, room.row, 1);
+            if (!neighborRoomId.HasValue)
             {
-                var neighbor = rooms.FirstOrDefault(r => r.id == neighborId && r.connected);
-                if (neighbor != null)
-                {
-                    neighborRoomId = neighborId;
-                    break;
-                }
+                Debug.LogWarning("Room could not be connected to the network");
+                continue;
             }
 
-            // If no connected neighbor found, simply take the first one (only happens on first iteration)
-            if (neighborRoomId == -1)
-                neighborRoomId = neighbors[0];
-
-            connectNeighbor(room, neighborRoomId);
+            connectNeighbor(room, neighborRoomId.Value);
             room.connected = true;
         }
     }
 
-    private List<int> nextNeighbor(int roomId, int startCol, int startRow, int maxSearchRadius)
+    private int? FindConnectedNeighbor(int roomId, int startCol, int startRow, int maxSearchRadius)
     {
-        var canidates = new List<int>();
-
         if (maxSearchRadius > Math.Max(columns, rows))
         {
             Debug.LogError("room could not be connected");
@@ -226,21 +225,15 @@ public class GridRoomSpawner : MonoBehaviour
                     var cell = grid[row, col];
                     if (cell > 0 && cell != roomId)  // Found a room that's not the current one
                     {
-                        canidates.Add(cell);
+                        var neighbor = rooms.FirstOrDefault(r => r.id == cell && r.connected);
+                        if (neighbor != null)
+                            return neighbor.id;
                     }
                 }
             }
         }
-        // If no neighbors found at this radius, expand the search
-        if (canidates.Count == 0)
-        {
-            return nextNeighbor(roomId, startCol, startRow, maxSearchRadius + 1);
-        }
-        else
-        {
-            return canidates;
-        }
-
+        // If no connected neighbors found at this radius, expand the search
+        return FindConnectedNeighbor(roomId, startCol, startRow, maxSearchRadius + 1);
     }
 
     private void connectNeighbor(RoomData room, int roomIdNeighbor)
@@ -268,8 +261,13 @@ public class GridRoomSpawner : MonoBehaviour
             Vector3 b = RoomWorldCenterPos(neighborRoom.col, room.row);   // Same row, target column
             Vector3 c = RoomWorldCenterPos(neighborRoom);
 
-            CreateCorridorSegment(a, b);
-            CreateCorridorSegment(b, c);
+            // Extend each segment along its own direction to create proper overlap at corner
+            float overlapExtension = cellWidth * corridorWidth * 0.5f;
+            Vector3 dirHorizontal = (b - a).normalized;
+            Vector3 dirVertical = (c - b).normalized;
+
+            CreateCorridorSegment(a, b + dirHorizontal * overlapExtension);
+            CreateCorridorSegment(b - dirVertical * overlapExtension, c);
         }
     }
 
