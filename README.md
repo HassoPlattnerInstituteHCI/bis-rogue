@@ -3,14 +3,14 @@
 Unity-Version: **2021.3.0f1**
 
 Rogue GamePlay Online:
-- https://archive.org/details/RogueTheAdventureGameV1.11984MichaelC.ToyKennethC.R.C.ArnoldAdventureRolePlayingRPG#loading
+- [Rouge Online](https://archive.org/details/RogueTheAdventureGameV1.11984MichaelC.ToyKennethC.R.C.ArnoldAdventureRolePlayingRPG#loading)
 
-
-Idea for BIS:
-
+DualPanto Toolkit (installation and documentation)
+- [DP Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/)
 
 ___
-#### Rogue Gameplay
+
+## Rogue Gameplay
 
 GameObjects in the Hierarchy window:
 - Panto
