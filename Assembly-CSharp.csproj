@@ -40,6 +40,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/LinuxSpeechIn.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBoxCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ForceField.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/01/PlayerController.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MeHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Resources/clipper_library/clipper.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroBackAndForth.cs" />
@@ -57,10 +58,11 @@
      <Compile Include="Assets/Scenes/Rogue/Scripts/Room.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/UpperHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/SpeechIn.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/03/PlayerControllerCollisions.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/FootSteps.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MoveToPosition.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/WindowsSpeechIn.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Player.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/03/Player.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/RoomElement.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Settings.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/SpeechSpeedScript.cs" />
@@ -97,6 +99,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/IntroManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroPause.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/DialogManager.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/04/DumbEnemy.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBehaviour.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ActivateObstaclesSphere.cs" />
@@ -128,8 +131,6 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MovingObstacleManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/CenterForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/LinuxSpeechOut.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/PlayerController.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/PlayerControllerCollisions.cs" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/Path.compute" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/ProjectSettings/ProjectVersion.txt" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/PathShader.compute" />
