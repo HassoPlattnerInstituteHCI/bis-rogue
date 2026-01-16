@@ -783,8 +783,9 @@ MonoBehaviour:
   roomPrefab: {fileID: 7973606445352907781, guid: 9445c430569f244638d9f2c616946e1a, type: 3}
   minRoomSize: 0.5
   maxRoomSize: 0.7
-  probabilityOfRoomInCell: 80
-  spawnRoomInTopCenter: 0
+  probabilityOfRoomInCell: 70
+  probabilityOfDarkRoom: 10
+  spawnRoomInTopCenter: 1
   corridorPrefab: {fileID: 7081821655740613415, guid: 346a6666464974a41b501704fd1073ec, type: 3}
   corridorWidth: 0.05
 --- !u!1 &1582416179
