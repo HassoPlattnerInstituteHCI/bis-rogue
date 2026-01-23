@@ -24,11 +24,11 @@ public class PlayerRecoil : MonoBehaviour
     }
 
     // checks for collision with enemy and applies recoil
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            var collisionPoint = collision.contacts[0].normal;
+            var collisionPoint = other.ClosestPoint(transform.position);
             ApplyRecoil(collisionPoint);
         }
     }

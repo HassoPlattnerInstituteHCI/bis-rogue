@@ -77,7 +77,7 @@ public class RoomSpawnRandom : MonoBehaviour
         Vector3 enemyPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
 
         var enemyGO = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
-        var enemy = enemyGO.GetComponent<SmartEnemy>();
+        var enemy = enemyGO.GetComponent<EnemyPanto>();
         enemy.SetRoomBounds(new Vector2(room.transform.position.x, room.transform.position.z),
                 new Vector2(roomSize.x, roomSize.z));
         return enemyGO;

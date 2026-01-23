@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DualPantoToolkit;
 
-public class Enemy : MonoBehaviour
+public class EnemyPanto : MonoBehaviour
 {
     [SerializeField]
     [Range(0, 5)]
@@ -87,15 +87,15 @@ public class Enemy : MonoBehaviour
     
 
     //collision detection with player
-    void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("Enemy collided with: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("MeHandle") && Time.time - lastAttackTime > attackCooldown)
-        {
-            HitPlayer();
-            lastAttackTime = Time.time;
-        }
-    }
+    // void OnCollisionStay(Collision collision)
+    // {
+    //     Debug.Log("Enemy collided with: " + collision.gameObject.name);
+    //     if (collision.gameObject.CompareTag("MeHandle") && Time.time - lastAttackTime > attackCooldown)
+    //     {
+    //         HitPlayer();
+    //         lastAttackTime = Time.time;
+    //     }
+    // }
 
 
     // calculate room bounds based on center and size

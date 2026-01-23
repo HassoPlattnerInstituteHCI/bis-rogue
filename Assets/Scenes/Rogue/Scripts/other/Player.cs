@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && Time.time - lastAttackTime > attackCooldown)
         {
             Debug.Log("Attacking enemy: " + collision.gameObject.name);
-            HitEnemy(collision.gameObject.GetComponent<Enemy>());
+            HitEnemy(collision.gameObject.GetComponent<EnemyAttack>());
             lastAttackTime = Time.time;
         }
         if (collision.gameObject.CompareTag("Food"))
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         rogueManager.playerHealth++;
     }
 
-    public void HitEnemy(Enemy enemyScript)
+    public void HitEnemy(EnemyAttack enemyScript)
     {
         if (enemyScript != null)
         {

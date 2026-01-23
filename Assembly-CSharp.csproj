@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/RogueAudioManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/LinuxSpeechIn.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/HealthTextUI.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBoxCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ForceField.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/01/PlayerController.cs" />
@@ -129,14 +130,13 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroBase.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/RoomManager.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/07/GridRoomSpawner.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/EnemyAttack.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridSystem.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ItHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Level.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MovingObstacleManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/CenterForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/LinuxSpeechOut.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/HealthTextUI.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/EnemyAttack.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/Path.compute" />
