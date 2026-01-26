@@ -17,13 +17,13 @@ public class RogueManagerDP : MonoBehaviour
     [SerializeField]
     public Transform spawnPosition;
 
-    private RogueAudioManager rogueAudioManager;
+    
 
     private UpperHandle upperHandle;
 
     void Start()
     {
-        rogueAudioManager = GetComponent<RogueAudioManager>();
+        
         upperHandle = GameObject.Find("Panto").GetComponent<UpperHandle>();
         Introduction();
     }
@@ -44,16 +44,5 @@ public class RogueManagerDP : MonoBehaviour
             await upperHandle.MoveToPosition(spawnPosition.position, 1f);
         }
     }
-    public void PlayerHit()
-    {
-        playerHealth--;
-        Debug.Log("Player Health: " + playerHealth);
-        rogueAudioManager.PlayPlayerHitSound();
-        if (playerHealth <= 0)
-        {
-            Debug.Log("Player has died!");
-            rogueAudioManager.PlayPlayerDeathSound();
-            // Handle player death (e.g., end game, respawn, etc.)
-        }
-    }
+    
 }

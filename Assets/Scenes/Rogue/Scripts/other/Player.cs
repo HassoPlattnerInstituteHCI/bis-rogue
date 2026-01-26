@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private float attackCooldown = 3.0f; // in seconds
     private RogueManager rogueManager;
 
-    private RogueAudioManager rogueAudioManager;
+   
 
 
     void Start()

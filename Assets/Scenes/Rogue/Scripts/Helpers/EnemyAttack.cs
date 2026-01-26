@@ -11,8 +11,11 @@ public class EnemyAttack : MonoBehaviour
     [Range(0, 10)]
     public int enemyLevel;
 
+    [SerializeField]
+    public float attackCooldown = 3.0f; // in seconds
+
     private float lastAttackTime = -Mathf.Infinity;
-    private float attackCooldown = 8.0f; // in seconds
+    
 
     private void OnTriggerStay(Collider other)
     {

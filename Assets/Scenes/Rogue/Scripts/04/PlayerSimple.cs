@@ -29,7 +29,7 @@ public class PlayerSimple : MonoBehaviour
         if (other.gameObject.CompareTag("Food"))
         {
             Heal(1);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject.transform.parent.gameObject);
         }
     }
 
