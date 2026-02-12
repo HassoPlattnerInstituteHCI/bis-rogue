@@ -24,8 +24,6 @@ public class EnemyPanto : MonoBehaviour
     private float lastAttackTime = -Mathf.Infinity;
     private float attackCooldown = 8.0f; // in seconds
 
-    private RogueAudioManager rogueAudioManager;
-
     private UpperHandle meHandle;
 
     private Vector3 lastPlayerPosition = Vector3.zero;
@@ -49,7 +47,6 @@ public class EnemyPanto : MonoBehaviour
 
     void Start()
     {
-        rogueAudioManager = FindObjectOfType<RogueAudioManager>();
         
 
 
@@ -161,7 +158,7 @@ public class EnemyPanto : MonoBehaviour
         if (Time.time - lastEnemyPresent > enemyPresentCooldown)
         {
             var XvolumeFactor = 1.0f - (Vector3.Distance(this.transform.position, playerPos));
-            rogueAudioManager.PlayEnemyPresentSound(XvolumeFactor);
+            SoundManager.Instance.Play("EnemyPresent", Mathf.Clamp(XvolumeFactor * volumeFactor, 0.01f, 1.0f));
             lastEnemyPresent = Time.time;
         }
     }

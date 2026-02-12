@@ -79,7 +79,7 @@ public class Room : MonoBehaviour
     public void AddIntroRoomSpeech(int roomId, string introductionText = null)
     {
         var roomSpeech = this.gameObject.AddComponent<RoomSpeechOnEntry>();
-        roomSpeech.introductionText = introductionText ?? "You have entered room number " + roomId + ".";
+        roomSpeech.introductionText = introductionText ?? "room " + roomId + ".";
     }
 
     // change the introduction text of the RoomSpeechOnEntry component

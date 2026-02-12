@@ -30,12 +30,12 @@ public class PlayerDP : MonoBehaviour
         {
             Heal(1);
             Destroy(other.gameObject.transform.parent.gameObject);
-            RogueAudioManager.OnItemPickupSoundRequested?.Invoke();  // <-- Sound trigger
+            SoundManager.Instance.Play("ItemPickup");
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
             Destroy(other.gameObject);
-            RogueAudioManager.OnLevelCompleteSoundRequested?.Invoke();  // <-- Sound trigger
+            SoundManager.Instance.Play("LevelComplete");
             await System.Threading.Tasks.Task.Delay(2000);
             RogueManager rogueManager = FindObjectOfType<RogueManager>();
             if (rogueManager != null)
@@ -56,7 +56,7 @@ public class PlayerDP : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(1);
-                RogueAudioManager.OnEnemyHitSoundRequested?.Invoke();  // <-- Sound trigger
+                SoundManager.Instance.Play("EnemyHit");
             }
             lastAttackTime = Time.time;
         }
@@ -70,7 +70,7 @@ public class PlayerDP : MonoBehaviour
         if (attackRoll >= (playerAC + (-enemyLevel + 10) + 1))
         {
             TakeDamage(1);
-            RogueAudioManager.OnPlayerHitSoundRequested?.Invoke();  // <-- Sound trigger
+            SoundManager.Instance.Play("PlayerHit");
         }
     }
 
@@ -85,7 +85,7 @@ public class PlayerDP : MonoBehaviour
             Die();
             return;
         }
-        RogueAudioManager.OnPlayerHitSoundRequested?.Invoke();  // <-- Sound trigger
+        SoundManager.Instance.Play("PlayerHit");
     }
 
     public void Heal(int amount)
@@ -97,7 +97,7 @@ public class PlayerDP : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player ist tot");
-        RogueAudioManager.OnPlayerDeathSoundRequested?.Invoke();  // <-- Sound triggern
+        SoundManager.Instance.Play("PlayerDeath");
 
     }
 }

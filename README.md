@@ -118,3 +118,10 @@ ___
 Extra todo:
 - move plane to 0,0
 - Dark room implementation (nice to have)
+
+
+
+
+For DP?
+- Reset after Finish reached? -> reset wall rendering until reached box of spawn room
+- 

@@ -86,6 +86,8 @@ public class GridRoomSpawner : MonoBehaviour
 
     public int[,] grid;  // 2D grid storing room IDs (0 = empty cell)
 
+    public List<GameObject> spawnedRooms = new List<GameObject>();
+
     void Awake()
     {
         Create();
@@ -102,6 +104,17 @@ public class GridRoomSpawner : MonoBehaviour
 
         this.gameObject.AddComponent<PantoCompoundCollider>();
         this.gameObject.GetComponent<PantoCompoundCollider>().onLower = false;
+    }
+
+    public void Reset()
+    {
+        foreach (var room in spawnedRooms)
+        {
+            Destroy(room);
+        }
+        spawnedRooms.Clear();
+        this.gameObject.GetComponent<PantoCompoundCollider>().Remove();
+        Destroy(this.gameObject.GetComponent<PantoCompoundCollider>());
     }
 
     void CalculateGridFromPlane()
@@ -169,6 +182,7 @@ public class GridRoomSpawner : MonoBehaviour
 
         var room = Instantiate(roomPrefab, pos, Quaternion.identity, this.gameObject.transform);
 
+        spawnedRooms.Add(room);
         // Scale the room to its calculated dimensions
         room.transform.localScale = new Vector3(roomData.roomSizeX, 1f, roomData.roomSizeY);
 
@@ -307,6 +321,7 @@ public class GridRoomSpawner : MonoBehaviour
 
         var corridor = Instantiate(corridorPrefab, pos, rot, this.gameObject.transform);
 
+        spawnedRooms.Add(corridor);
         // We assume the prefab is aligned along its local Z-axis
         Vector3 scale = corridor.transform.localScale;
         scale.z = length;

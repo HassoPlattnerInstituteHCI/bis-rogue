@@ -608,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 826605487606422808, guid: f08d327e9fb42f94d97ba9d1d226d418, type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 826605487606422808, guid: f08d327e9fb42f94d97ba9d1d226d418, type: 3}
       propertyPath: m_Enabled
@@ -966,6 +966,7 @@ MonoBehaviour:
   spawnRoomInTopCenter: 1
   corridorPrefab: {fileID: 7081821655740613415, guid: 346a6666464974a41b501704fd1073ec, type: 3}
   corridorWidth: 0.02
+  spawnedRooms: []
 --- !u!1 &970189445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec05903bea0f4084a2cb18a93202b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoilStrength: 0.94
+  recoilStrength: 0.8
   recoilSpeed: 7.22
   inverseReciolDirection: 1
 --- !u!114 &992375341
@@ -1529,6 +1530,7 @@ GameObject:
   - component: {fileID: 1975699874}
   - component: {fileID: 1975699875}
   - component: {fileID: 1975699876}
+  - component: {fileID: 1975699877}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1614,7 +1616,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975699869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd41ab467c3de445599bf5c095c2bb58, type: 3}
   m_Name: 
@@ -1624,9 +1626,10 @@ MonoBehaviour:
   enemyPresentSound: {fileID: 8300000, guid: 9c0e8f0b1662e4e07bc263aa6c92b665, type: 3}
   enemyDeathSound: {fileID: 8300000, guid: 703e25036b4a648abae13b501c874da2, type: 3}
   playerDeathSound: {fileID: 8300000, guid: efe72a2c18b9c4382a01c70dbb165f13, type: 3}
-  itemPickupSound: {fileID: 8300000, guid: 31ba98258de3174468c8702f416389e1, type: 3}
+  itemPickupSound: {fileID: 8300000, guid: 4daaf3540af0c477ca8c95ecdc51ba5a, type: 3}
   levelCompleteSound: {fileID: 8300000, guid: 1aef8a90c32f7469ba4db2dc6df0edee, type: 3}
   defaultVolume: 1
+  audioSource: {fileID: 0}
 --- !u!114 &1975699876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,3 +1644,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 970189447}
   player: {fileID: 992375342}
+--- !u!114 &1975699877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975699869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f30ac08790504b85bdc05bcfeacb6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: 0f30455e59cd443a7b9522d64bd24bf4, type: 3}
+    volume: 1
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 0b442794e9dc245e49deb3246d2cedd5, type: 3}
+    volume: 1
+  - name: EnemyPresent
+    clip: {fileID: 8300000, guid: 9c0e8f0b1662e4e07bc263aa6c92b665, type: 3}
+    volume: 1
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 703e25036b4a648abae13b501c874da2, type: 3}
+    volume: 1
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: efe72a2c18b9c4382a01c70dbb165f13, type: 3}
+    volume: 1
+  - name: ItemPickup
+    clip: {fileID: 8300000, guid: 4daaf3540af0c477ca8c95ecdc51ba5a, type: 3}
+    volume: 1
+  - name: LevelComplete
+    clip: {fileID: 8300000, guid: 1aef8a90c32f7469ba4db2dc6df0edee, type: 3}
+    volume: 1

@@ -28,17 +28,36 @@ public class RoomManager : MonoBehaviour
 
     private Vector3 spawnPosition;
 
-    async Task Start()
+    private GameObject RoomObstacles;
+
+    void Start()
+    {
+        // if (RoomObstacles == null)
+        // {
+        //     Instantiate(RoomObstacles);
+        // }
+        Create();
+    }
+
+    public async void Create()
     {
         FindAllRooms();
         Debug.Log("Number of rooms: " + rooms.Count);
         await Task.Delay(1000); // wait a second to ensure all rooms are initialized
         CreateRoomObsticles();
-        //MovePlayerToSpawn(spawnPosition);
+    }
+
+    public void Reset()
+    {
+        foreach(Transform child in RoomObstacles.GetComponentsInParent<Transform>())
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     void CreateRoomObsticles()
     {
+        
         if (rooms.Count != 0)
         {
 
@@ -116,7 +135,7 @@ public class RoomManager : MonoBehaviour
             roomSpeech.triggerAfterSpeechEnd = true;
             UnityAction changeTextAction = () =>
             {
-                roomComponent.GetComponent<Room>().ChangeIntroductionText("This is the starting room again. Good luck exploring the dungeon!");
+                roomComponent.GetComponent<Room>().ChangeIntroductionText("Start Room");
             };
             roomSpeech.onEnter.AddListener(changeTextAction);
         }
