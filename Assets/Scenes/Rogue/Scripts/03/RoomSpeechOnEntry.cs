@@ -1,16 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using DualPantoToolkit;
 using SpeechIO;
-using UnityEditor.EditorTools;
-using UnityEngine;
 using UnityEngine.Events;
 
 

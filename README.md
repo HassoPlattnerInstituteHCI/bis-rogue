@@ -19,81 +19,24 @@ ___
 > When pressing Play, Unity shows a brown screen. Press **"b"** on your keyboard to make the scene visible.
 
 
-
-## Rogue Gameplay 🎮
+## Rogue Sounds 📣
 
 ### Step-by-Step Tutorial
 
-**1. Add Player and Keyboard Controls**
-   - Create a capsule or sphere in the scene (right-click in the Hierarchy window → 3D Object → Capsule/Sphere)
-   - Rename the GameObject to "Player"
-   - Attach the `PlayerController.cs` script to the Player GameObject **(ToDo)**
-   - Test movement using the arrow keys
+**1. Add Sounds to SoundManager Script**
+   - GameObjects that need to be changed:
+     - PlayerSimple.cs
+     - EnemyAttack.cs
    - 🖼️(Placeholder for todo)
 
-**2. Add Collectible Food Items**
-   - Create a capsule in the Hierarchy and rename it to "Food"
-   - Add a Capsule Collider component to the Food GameObject
-   - Create a new Tag called "Food":
-     - Select the Food GameObject
-     - In the Inspector, click on the Tag dropdown (below the GameObject name)
-     - Select "Add Tag" and create "Food"
-     - Assign this tag to the Food GameObject
-   - Edit the `PlayerSimple.cs` script to handle collisions **(ToDO)**
+**2. How to detect walking?**
+   - Edit the `PlayerWalking.cs` script to handle walking **(ToDO)**
    - 🖼️(Placeholder for todo)
 
-**3. Create Room**
-   - The Map GameObject already includes a Mesh Collider (required for collision detection)
-   - Create a 3D Cube (right-click in Hierarchy → 3D Object → Cube)
-   - Scale and position the cube to form a room that contains the Player
-   - 🖼️(Placeholder for todo)
-   -  Remove the `PlayerController.cs` script from the Player
-   - Attach the `PlayerControllerCollision.cs` script to the Player GameObject **(ToDo)**
-   - This enables proper collision detection between Player and Map
+**3. Speech on Entry**
+   - add to random room go
    - 🖼️(Placeholder for todo)
 
-**4. Add Enemy with Movement**
-   - Create an enemy GameObject similar to the Food item
-   - Create and assign a new Tag called "Enemy"
-   - Attach the `EnemyMovement.cs` script to make the enemy follow the Player **(ToDo)**
-   - 🖼️(Placeholder for todo)
-
-**5. Create Prefabs and Random Spawning**
-   - Attach the `RoomSpawnRandom.cs` script to the Map GameObject **(ToDo)**
-   - Create multiple rooms (they should either overlap or be connected by corridors)
-   - Create and assign the Tag "Room" to each room where you want spawning to occur
-   - Create Prefabs:
-     - Navigate to the Prefabs folder in the Project window
-     - Drag the Enemy and Food GameObjects from the Hierarchy into the Prefabs folder
-     - The objects should turn blue, indicating they are now prefab instances
-     - Delete the Enemy and Food instances from the Scene
-     - Select the Map GameObject and locate the `RoomSpawnRandom.cs` component
-     - Drag the Enemy prefab into the "Enemy Prefab" field
-     - Drag the Food prefab into the "Food Prefab" field
-   - 🖼️(Placeholder for todo) 
-
-**6. Add Procedural Map Generation**
-  - Remove all manually placed rooms inside the Map
-  - Add the `GridRoomSpawner.cs` script to the Map GameObject
-  - Configure the spawner in the Inspector:
-    - Select the **Room Prefab** (drag from Prefabs folder or use the object picker)
-    - Select the **Corridor Prefab** (drag from Prefabs folder or use the object picker)
-    - Adjust **Rows** and **Columns** for grid size (e.g., 3x3)
-    - Set **Min/Max Room Size** (controls room dimensions within each cell)
-    - Adjust **Probability of Room in Cell** (percentage chance a cell contains a room)
-  - Press **Play** to generate a random dungeon layout with connected rooms
-
-
-
-
-___
-#### Game Sounds
-
-1. sound (application with a blind scene -> just audio output) -> different branche
-2. add walking sound to handle
-3. add soundmanager to game
-
-8. room speech on entry -> SpeechIO???
 
 ___
 #### DualPanto Haptics
