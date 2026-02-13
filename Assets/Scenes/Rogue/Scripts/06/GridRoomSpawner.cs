@@ -7,35 +7,33 @@ using System.Linq;
 using System.Reflection;
 
 
-public class RoomData
-{
-    public int id;
-    public float roomSizeX = 0f;
-    public float roomSizeY = 0f;
-
-    public int col;
-    public int row;
-
-    public bool connected = false;  // Whether room is connected to the dungeon network
-
-    public RoomData(int id)
-    {
-        this.id = id;
-    }
-    public RoomData(int id, float roomSizeX, float roomSizeY, int col, int row)
-    {
-        this.id = id;
-        this.roomSizeX = roomSizeX;
-        this.roomSizeY = roomSizeY;
-        this.col = col;
-        this.row = row;
-    }
-}
-
-
 public class GridRoomSpawner : MonoBehaviour
 {
+    //Helper class for creating rooms
+    public class RoomData
+    {
+        public int id;
+        public float roomSizeX = 0f;
+        public float roomSizeY = 0f;
 
+        public int col;
+        public int row;
+
+        public bool connected = false;  // Whether room is connected to the dungeon network
+
+        public RoomData(int id)
+        {
+            this.id = id;
+        }
+        public RoomData(int id, float roomSizeX, float roomSizeY, int col, int row)
+        {
+            this.id = id;
+            this.roomSizeX = roomSizeX;
+            this.roomSizeY = roomSizeY;
+            this.col = col;
+            this.row = row;
+        }
+    }
 
     // Insprector Settings ======================================================
     [Header("Grid Settings")]
@@ -89,7 +87,6 @@ public class GridRoomSpawner : MonoBehaviour
     void Awake()
     {
         Create();
-
     }
 
     public void Create()
@@ -314,9 +311,7 @@ public class GridRoomSpawner : MonoBehaviour
         scale.x = cellWidth * corridorWidth;
         corridor.transform.localScale = scale;
     }
-
-
-
+    
     public Vector3 GetWorldPosition(int x, int y)
     {
         // Determine the size of the plane in world space

@@ -24,14 +24,6 @@ ___
 
 ### Step-by-Step Tutorial
 
-**0. Getting to Know Unity**
-   - 🖼️ *(Placeholder for Hierarchy Window Image)*
-   - Main GameObjects in the Hierarchy window:
-     - **Panto** - DualPanto device controller
-     - **Map** - Game level container
-     - **World** - World environment
-     - **Manager** - Game state management 
-
 **1. Add Player and Keyboard Controls**
    - Create a capsule or sphere in the scene (right-click in the Hierarchy window → 3D Object → Capsule/Sphere)
    - Rename the GameObject to "Player"
@@ -63,15 +55,13 @@ ___
 **4. Add Enemy with Movement**
    - Create an enemy GameObject similar to the Food item
    - Create and assign a new Tag called "Enemy"
-   - Attach the `DumbEnemy.cs` script to make the enemy follow the Player **(ToDo)**
+   - Attach the `EnemyMovement.cs` script to make the enemy follow the Player **(ToDo)**
    - 🖼️(Placeholder for todo)
 
 **5. Create Prefabs and Random Spawning**
    - Attach the `RoomSpawnRandom.cs` script to the Map GameObject **(ToDo)**
    - Create multiple rooms (they should either overlap or be connected by corridors)
    - Create and assign the Tag "Room" to each room where you want spawning to occur
-   - Upgrade the Enemy AI:
-     - Replace `DumbEnemy.cs` with `SmartEnemy.cs` on the Enemy GameObject
    - Create Prefabs:
      - Navigate to the Prefabs folder in the Project window
      - Drag the Enemy and Food GameObjects from the Hierarchy into the Prefabs folder
@@ -112,12 +102,11 @@ ___
 2. add player recoil when player collides with enemy
 
 
-
 ### meeting ideas
 
 - Food before room collision (done)
-- dumb enemy??? (do we need dumpEnemy or just use SmartEnemy and set room to infinity)
-- GameManager
+- dumb enemy??? (do we need dumpEnemy or just use SmartEnemy and set room to infinity) (done)
+- GameManager (done)
 
 
 ### nice to have

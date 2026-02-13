@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     private float lastAttackTime = -Mathf.Infinity;
     private float attackCooldown = 8.0f; // in seconds
 
-    private RogueManager rogueManager;
+    private RogueGameManager rogueManager;
 
     private RogueAudioManager rogueAudioManager;
 
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        rogueManager = FindObjectOfType<RogueManager>();
+        rogueManager = FindObjectOfType<RogueGameManager>();
         rogueAudioManager = FindObjectOfType<RogueAudioManager>();
         if (rogueManager == null)
         {
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy collided with: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("MeHandle") && Time.time - lastAttackTime > attackCooldown)
         {
-            HitPlayer();
+            //HitPlayer();
             lastAttackTime = Time.time;
         }
     }
@@ -183,18 +183,18 @@ public class Enemy : MonoBehaviour
     }
     
     // enemy attacks player
-    void HitPlayer()
-    {
-        if (rogueManager != null)
-        {
-            // roll 1..20 inclusive for attack (original rogue like system)
-            int attackRoll = Random.Range(1, 21);
-            if (attackRoll >= (rogueManager.playerAC + ((0 - enemyLevel) + 10) + 1))
-            {
-                rogueManager.PlayerHit();
-            }
-        }
-    }
+    // void HitPlayer()
+    // {
+    //     if (rogueManager != null)
+    //     {
+    //         // roll 1..20 inclusive for attack (original rogue like system)
+    //         int attackRoll = Random.Range(1, 21);
+    //         if (attackRoll >= (rogueManager.playerAC + ((0 - enemyLevel) + 10) + 1))
+    //         {
+    //             rogueManager.PlayerHit();
+    //         }
+    //     }
+    // }
 
     // enemy takes damage
     public void TakeDamage(int damage)

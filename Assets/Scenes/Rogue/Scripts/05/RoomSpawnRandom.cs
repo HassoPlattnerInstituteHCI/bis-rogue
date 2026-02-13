@@ -8,11 +8,8 @@ public class RoomSpawnRandom : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject foodPrefab;
 
-    [SerializeField]
     [Range(0, 100)]
     public int enemySpawnProbability = 50;
-
-
 
     private List<GameObject> rooms = new List<GameObject>();
 
@@ -27,7 +24,6 @@ public class RoomSpawnRandom : MonoBehaviour
 
     }
 
-
     void FindAllRooms()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -40,7 +36,6 @@ public class RoomSpawnRandom : MonoBehaviour
         }
     }
 
-
     void SpawnRandomly()
     {
         // Implement random spawning logic here
@@ -48,13 +43,13 @@ public class RoomSpawnRandom : MonoBehaviour
         {
             var roomComponent = room.GetComponent<Room>();
             // add food to each room
-            var gOF = AddFoodToRoom(room);
-            roomComponent.gameObjectsInRoom.Add(gOF);
+            var foodGameObject = AddFoodToRoom(room);
+            roomComponent.gameObjectsInRoom.Add(foodGameObject);
             // add enemy based on probability
             if (Random.Range(0, 100) < enemySpawnProbability && !roomComponent.isSpawnRoom)
             {
-                var gOE = AddEnemyToRoom(room);
-                roomComponent.gameObjectsInRoom.Add(gOE);
+                var enemyGameObject = AddEnemyToRoom(room);
+                roomComponent.gameObjectsInRoom.Add(enemyGameObject);
             }
             roomComponent.UpdateRoomVisibility();
             // add intro speech to non-spawn rooms
@@ -77,7 +72,7 @@ public class RoomSpawnRandom : MonoBehaviour
         Vector3 enemyPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
 
         var enemyGO = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
-        var enemy = enemyGO.GetComponent<SmartEnemy>();
+        var enemy = enemyGO.GetComponent<EnemyMovement>();
         enemy.SetRoomBounds(new Vector2(room.transform.position.x, room.transform.position.z),
                 new Vector2(roomSize.x, roomSize.z));
         return enemyGO;
