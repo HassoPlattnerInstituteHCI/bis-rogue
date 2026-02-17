@@ -1,6 +1,8 @@
 # DualPanto-Rogue
-
 Unity Version: **2021.3.0f1**
+
+![Rogue for DualPanto](docs/img/cover.png)
+
 
 ## Resources
 
