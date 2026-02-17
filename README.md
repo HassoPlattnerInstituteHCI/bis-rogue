@@ -2,6 +2,8 @@
 
 Unity Version: **2021.3.0f1**
 
+![Rogue for DualPanto](docs/img/cover.png)
+
 ## Resources
 
 - [Rogue Gameplay Online](https://archive.org/details/RogueTheAdventureGameV1.11984MichaelC.ToyKennethC.R.C.ArnoldAdventureRolePlayingRPG#loading)
@@ -13,7 +15,7 @@ ___
 
 ##### ⚠️ Enable Panto-Debug-Mode
 
-🖼️ *(Placeholder for Debug Image)*
+<img src="docs/img/debugMode.png" height="600">
 
 > **💡 Tip:**
 > When pressing Play, Unity shows a brown screen. Press **"b"** on your keyboard to make the scene visible.
@@ -25,11 +27,16 @@ ___
 ### Step-by-Step Tutorial
 
 **1. Add Player and Keyboard Controls**
-   - Create a capsule or sphere in the scene (right-click in the Hierarchy window → 3D Object → Capsule/Sphere)
-   - Rename the GameObject to "Player"
-   - Attach the `PlayerController.cs` script to the Player GameObject **(ToDo)**
-   - Test movement using the arrow keys
-   - 🖼️(Placeholder for todo)
+   - 1.1 Create a capsule in the scene (right-click in the Hierarchy window → 3D Object → Capsule/Sphere)
+  <img src="docs/img/1_newGO.png" height="600">
+   - 1.2 Rename the GameObject to "Player"
+  <img src="docs/img/1_rename.png" height="600">
+   - 1.3 Change size of the GameObject in the Inspector (click on GameObject → right window → change values inside scale)
+  <img src="docs/img/1_inspector.png" height="600">
+   - 1.4 Attach the `PlayerController.cs` script to the Player GameObject **(ToDo)** (click on the GameObject → scroll down the Inspector window → click add component)
+  <img src="docs/img/1_addComponent.png" height="600"><img src="docs/img/1_addComponent2.png" height="400">
+   - Test movement using the arrow keys (press play on center top)
+  <img src="docs/img/1_play.png" height="600">
 
 **2. Add Collectible Food Items**
    - Create a capsule in the Hierarchy and rename it to "Food"
