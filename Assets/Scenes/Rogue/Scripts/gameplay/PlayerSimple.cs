@@ -48,7 +48,8 @@ public class PlayerSimple : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && Time.time - lastAttackTime > attackCooldown)
         {
             Debug.Log("Player attacking enemy: " + other.gameObject.name);
-
+           
+           
             EnemyAttack enemy = other.GetComponent<EnemyAttack>();
             if (enemy != null)
             {

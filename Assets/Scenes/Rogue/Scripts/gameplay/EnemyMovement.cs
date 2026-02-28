@@ -94,7 +94,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
         Vector3 playerPosLocal = player.transform.position;
-
+        
         if (playerPosLocal.x >= roomMinX - roomTolerance && playerPosLocal.x <= roomMaxX + roomTolerance &&
             playerPosLocal.z >= roomMinZ - roomTolerance && playerPosLocal.z <= roomMaxZ + roomTolerance)
         {
