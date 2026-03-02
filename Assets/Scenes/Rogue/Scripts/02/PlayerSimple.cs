@@ -32,14 +32,18 @@ public class PlayerSimple : MonoBehaviour
         
     }
 
-    // Handles collisions with enemies, food items, and finish point
+    // Handles collisions
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Food"))
-        {
-            Heal(1);
-            Destroy(other.gameObject);
-        }
+        // !!! TODO: implement player interactions with food !!!
+        // hint: use other.gameObject to get the collided object
+        // hint: use gameObject.CompareTag("TagName") to check if it's a food item
+        
+        //if (TODO here)
+        //{
+            // use Heal(int number) method to heal the player
+            //Destroy(other.gameObject);
+        //}
     }
 
     void OnTriggerStay(Collider other)

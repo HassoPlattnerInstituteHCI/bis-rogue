@@ -57,12 +57,23 @@ public class RoomSpawnRandom : MonoBehaviour
     }
 
     // add food item to the room at a random position
+
+    // TODO: implement food spawning at a random position within the room bounds
     GameObject AddFoodToRoom(GameObject room)
     {
         var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
-        Vector3 foodPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
 
-        return Instantiate(foodPrefab, foodPosition, Quaternion.identity);
+        // TODO 1: implement food spawning at the random position (xPos, zPos) within the room
+        // use 'room.transform.position.y + 0.5f' for the y position to make sure the food is above the floor
+        // hint: use new Vector3(x,y,z) for the position
+        Vector3 foodPosition; 
+
+        // TODO 2: create the food prefab at the calculated position and return the created game object
+        // hint: use Instantiate(prefab, position, rotation) to create the food game object in the scene
+        // hint: use Quaternion.identity for the rotation if you don't want to rotate the food item
+        // hint: Instantiate returns the created game object, so you can return it directly from this method 
+        
+        return null; // replace with the created food game object
     }
 
     // add an enemy to the room at a random position

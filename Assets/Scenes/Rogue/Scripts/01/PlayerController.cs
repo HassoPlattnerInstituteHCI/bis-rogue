@@ -16,22 +16,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // !!! TODO: implement player movement based on input !!!
+        // Player going up when pressing the up arrow key
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             transform.position += new Vector3(0f, 0f, moveStep);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            transform.position += new Vector3(0f, 0f, -moveStep);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            transform.position += new Vector3(-moveStep, 0f, 0f);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            transform.position += new Vector3(moveStep, 0f, 0f);
-        }
+        //else if ()... // add more movement directions here (down, left, right)
+        
+
     }
 
 }

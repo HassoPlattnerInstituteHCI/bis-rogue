@@ -11,9 +11,9 @@ public class PlayerControllerCollisions : MonoBehaviour
     public GameObject map;
 
     [Range(0.05f, 0.5f)]
-    public float stepCooldown = 0.15f; // Zeit zwischen Schritten beim Halten
+    public float stepCooldown = 0.15f; // Time between steps when holding
 
-    private float nextStepTime = 0f; // Zeitpunkt des nächsten erlaubten Schritts
+    private float nextStepTime = 0f; // Time of the next allowed step
 
     void Start()
     {
@@ -21,13 +21,13 @@ public class PlayerControllerCollisions : MonoBehaviour
     }
     void Update()
     {
-        // Nur bewegen, wenn Cooldown abgelaufen ist
+        // Only move if cooldown has expired
         if (Time.time < nextStepTime)
             return;
 
         var movementVector = new Vector3();
 
-        // GetKey statt GetKeyDown: Bewegung auch wenn Taste gehalten wird
+        // GetKey instead of GetKeyDown: movement even when key is held
         if (Input.GetKey(KeyCode.UpArrow))
         {
             movementVector = new Vector3(0f, 0f, moveStep);
@@ -51,32 +51,32 @@ public class PlayerControllerCollisions : MonoBehaviour
             if (CheckCollisions(proposedPosition))
             {
                 transform.position = proposedPosition;
-                nextStepTime = Time.time + stepCooldown; // Nächsten Schritt zeitlich planen
+                nextStepTime = Time.time + stepCooldown; // Schedule next step
             }
         }
     }
 
     private bool CheckCollisions(Vector3 proposedPosition)
     {
-        // Nur bewegen, wenn Zielpunkt innerhalb der Map-Collider liegt
+        // Only move if target point is within the map colliders
         if (map != null)
         {
             var cols = map.GetComponentsInChildren<Collider>();
             foreach (var c in cols)
             {
                 if (c == null || !c.enabled) continue;
-                if (!c.bounds.Contains(proposedPosition)) continue; // schneller Vorfilter
+                if (!c.bounds.Contains(proposedPosition)) continue; // quick pre-filter
 
                 Vector3 closest = c.ClosestPoint(proposedPosition);
                 if ((closest - proposedPosition).sqrMagnitude < 1e-6f)
                 {
-                    return true; // Kollision erkannt
+                    return true; // Collision detected
 
                 }
             }
 
         }
-        return false; // Keine Kollision, Bewegung nicht erlaubt
+        return false; // No collision, movement not allowed
     }
 
 
