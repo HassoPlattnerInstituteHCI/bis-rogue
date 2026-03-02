@@ -11,17 +11,6 @@ Unity Version: **2021.3.0f1**
 
 ___
 
-## Getting Started
-
-##### ⚠️ Enable Panto-Debug-Mode
-
-<img src="docs/img/debugMode.png" height="600">
-
-> **💡 Tip:**
-> When pressing Play, Unity shows a brown screen. Press **"b"** on your keyboard to make the scene visible.
-
-
-
 ## Rogue Gameplay 🎮
 
 ### Step-by-Step Tutorial
