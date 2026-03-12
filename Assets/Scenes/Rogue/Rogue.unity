@@ -814,6 +814,7 @@ GameObject:
   - component: {fileID: 992375330}
   - component: {fileID: 992375336}
   - component: {fileID: 992375338}
+  - component: {fileID: 992375339}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -959,6 +960,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &992375339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992375329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d928ad431c62f47a9957aa3c435ea7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSoundRoom: {fileID: 8300000, guid: 128e6b0718d124caeb1f6e963d1d5862, type: 3}
+  roomTag: Room
+  corridorTag: Corridor
+  onMeHandle: 1
+  onItHandle: 0
+  volume: 1
+  pitch: 1
+  movementDetection: 1
+  corridorLowPassCutoff: 1800
+  roomReverbPreset: 0
+  corridorReverbPreset: 9
 --- !u!1 &1504913467
 GameObject:
   m_ObjectHideFlags: 0
