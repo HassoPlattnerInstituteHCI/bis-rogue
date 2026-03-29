@@ -124,8 +124,8 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoCircularCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroBase.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/RoomManager.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/gameplay/GridRoomSpawner.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/EnemyAttack.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/03/GridRoomSpawner.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/gameplay/EnemyAttack.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ItHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Level.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MovingObstacleManager.cs" />

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class RoomSpawnRandom : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject foodPrefab;
+    public GameObject finishPrefab;
 
     [Range(0, 100)]
     public int enemySpawnProbability = 50;
@@ -54,6 +56,7 @@ public class RoomSpawnRandom : MonoBehaviour
             roomComponent.UpdateRoomVisibility();
             // add intro speech to non-spawn rooms
         }
+        AddFinishToRoom(rooms.Last());
     }
 
     // add food item to the room at a random position
@@ -78,6 +81,13 @@ public class RoomSpawnRandom : MonoBehaviour
         return enemyGO;
     }
 
+    GameObject AddFinishToRoom(GameObject room)
+    {
+        var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
+        Vector3 finishPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
+
+        return Instantiate(finishPrefab, finishPosition, Quaternion.identity);
+    }
     // calculate a random position within the room bounds
     (float posX, float posZ, Vector3 roomSize) GetRandomPositionInRoom(GameObject room)
     {

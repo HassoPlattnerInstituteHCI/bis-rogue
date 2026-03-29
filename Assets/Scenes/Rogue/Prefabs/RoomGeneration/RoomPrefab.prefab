@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7973606445352907776}
   - component: {fileID: 7973606445352907779}
   - component: {fileID: 7973606445352907806}
+  - component: {fileID: 660335200476977634}
   m_Layer: 0
   m_Name: RoomPrefab
   m_TagString: Room
@@ -116,3 +117,24 @@ MonoBehaviour:
   gameObjectsInRoom: []
   materialNormalRoom: {fileID: 2100000, guid: 4396a02a0719448e9a0f066d265d298f, type: 2}
   materialDarkRoom: {fileID: 2100000, guid: 70663ee70b9cd4f57b073621a5a83093, type: 2}
+--- !u!114 &660335200476977634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973606445352907781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7443cd465b246e9ac5a8237398a416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introductionText: 
+  introductionClip: {fileID: 0}
+  triggerAfterSpeechEnd: 0
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []

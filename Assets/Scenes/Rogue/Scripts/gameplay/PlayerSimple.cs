@@ -39,6 +39,12 @@ public class PlayerSimple : MonoBehaviour
         {
             Heal(1);
             Destroy(other.gameObject);
+            SoundManager.Instance.Play("ItemPickup");
+        }
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            Destroy(other.gameObject);
+            SoundManager.Instance.Play("PlayerWin");
         }
     }
 
@@ -48,7 +54,7 @@ public class PlayerSimple : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && Time.time - lastAttackTime > attackCooldown)
         {
             Debug.Log("Player attacking enemy: " + other.gameObject.name);
-           
+            SoundManager.Instance.Play("PlayerAttack");
            
             EnemyAttack enemy = other.GetComponent<EnemyAttack>();
             if (enemy != null)
@@ -66,6 +72,7 @@ public class PlayerSimple : MonoBehaviour
         if (attackRoll >= (playerAC + ((0 - enemyLevel) + 10) + 1))
         {
             TakeDamage(1);
+            SoundManager.Instance.Play("EnemyAttack");
         }
     }
 
@@ -73,7 +80,7 @@ public class PlayerSimple : MonoBehaviour
     {
         currentHealth -= amount;
         OnHealthChanged?.Invoke(currentHealth);
-
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -88,6 +95,7 @@ public class PlayerSimple : MonoBehaviour
 
     private void Die()
     {
+        SoundManager.Instance.Play("PlayerDeath");
         Debug.Log("Player ist tot");
     }
 

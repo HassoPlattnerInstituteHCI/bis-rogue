@@ -566,7 +566,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959453739}
-  - component: {fileID: 959453741}
   - component: {fileID: 959453744}
   - component: {fileID: 959453745}
   - component: {fileID: 959453746}
@@ -594,23 +593,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &959453741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959453738}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f261c6a33ef4605b54d22af55d30d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: {fileID: 7071627844949919901, guid: 3b7b34dfd44a347d59db2922e5d5a311, type: 3}
-  roomPrefab: {fileID: 7973606445352907781, guid: 9445c430569f244638d9f2c616946e1a, type: 3}
-  enemyPrefab: {fileID: 340699752072570141, guid: b3d13a4afc95645b7b679d6815e80faa, type: 3}
-  finishPointPrefab: {fileID: 7245530447037590223, guid: 5cce610bad2af4b57a1e21ba0925d1ab, type: 3}
-  enemySpawnProbability: 73
 --- !u!64 &959453744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -639,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6518104830255856776, guid: 3b40b3376dc104193a5f68a16ea7ba76, type: 3}
   foodPrefab: {fileID: 5602270677463614563, guid: 061d2817f32e04936a64ba697da914f2, type: 3}
+  finishPrefab: {fileID: 5602270677463614563, guid: ee212aec895a24744acf8305c55b3d82, type: 3}
   enemySpawnProbability: 60
 --- !u!114 &959453746
 MonoBehaviour:
@@ -864,7 +847,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -994,6 +977,7 @@ MonoBehaviour:
   detectionRange: 0.2
   minPitch: 0.5
   maxPitch: 2
+  volume: 1
   soundClip: {fileID: 8300000, guid: 5da9097a9d879489aa235219d3650372, type: 3}
 --- !u!82 &992375341
 AudioSource:
@@ -1302,6 +1286,7 @@ GameObject:
   - component: {fileID: 1975699870}
   - component: {fileID: 1975699874}
   - component: {fileID: 1975699875}
+  - component: {fileID: 1975699876}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1363,9 +1348,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: MonsterAttack
+  - name: EnemyAttack
     clip: {fileID: 8300000, guid: 0f30455e59cd443a7b9522d64bd24bf4, type: 3}
     volume: 1
-  - name: MonsterAttack
+  - name: EnemyNear
     clip: {fileID: 8300000, guid: 0f30455e59cd443a7b9522d64bd24bf4, type: 3}
     volume: 1
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 703e25036b4a648abae13b501c874da2, type: 3}
+    volume: 1
+  - name: ItemPickup
+    clip: {fileID: 8300000, guid: 77a48cf98e1ce4d179be0ee1a9051293, type: 3}
+    volume: 1
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 0b442794e9dc245e49deb3246d2cedd5, type: 3}
+    volume: 1
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: efe72a2c18b9c4382a01c70dbb165f13, type: 3}
+    volume: 1
+  - name: PlayerWin
+    clip: {fileID: 8300000, guid: 1aef8a90c32f7469ba4db2dc6df0edee, type: 3}
+    volume: 1
+--- !u!114 &1975699876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975699869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5f9532bd4402742bb2a686c6e3d57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blindView:
+    serializedVersion: 2
+    m_Bits: 0
+  enhancedBlindView:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  developmentView:
+    serializedVersion: 2
+    m_Bits: 2147483647

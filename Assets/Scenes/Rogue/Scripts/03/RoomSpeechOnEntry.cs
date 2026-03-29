@@ -13,9 +13,6 @@ using UnityEngine.Events;
 /// </summary>
 public class RoomSpeechOnEntry : MonoBehaviour
 {
-    public bool onUpperEnter = true;
-    public bool onLowerEnter = false;
-
     [Multiline]
     [Tooltip("Text to be spoken when entering the room.")]
     public string introductionText;
@@ -49,10 +46,10 @@ public class RoomSpeechOnEntry : MonoBehaviour
     }
 
 
-    async Task OnCollisionEnter(Collision other)
+    async Task OnTriggerEnter(Collider other)
     {
         if(other.gameObject == null) return;
-        if ((other.gameObject.tag == "MeHandle" && onUpperEnter) || (other.gameObject.tag == "ItHandle" && onLowerEnter))
+        if ((other.gameObject.tag == "Player"))
         {
             if (triggerAfterSpeechEnd)
             {
@@ -65,10 +62,10 @@ public class RoomSpeechOnEntry : MonoBehaviour
         }
     }
 
-    async void OnCollisionExit(Collision other)
+    async void OnTriggerExit(Collider other)
     {
         if(other.gameObject == null) return;
-        if ((other.gameObject.tag == "MeHandle" && onUpperEnter) || (other.gameObject.tag == "ItHandle" && onLowerEnter))
+        if (other.gameObject.tag == "Player")
         {
             onExit.Invoke();
             speechOut.Stop(false);
