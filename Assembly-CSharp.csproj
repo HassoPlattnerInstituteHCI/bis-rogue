@@ -37,7 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/LinuxSpeechIn.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/HealthTextUI.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBoxCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ForceField.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/01/PlayerController.cs" />
@@ -56,19 +55,16 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/MacOSSpeechIn.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ColliderPolyline.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ObstacleManager.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/EnemyAttackDP.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/Room.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/UpperHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/SpeechIn.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/03/PlayerControllerCollisions.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/FootSteps.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MoveToPosition.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/WindowsSpeechIn.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/Player.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/RoomElement.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Settings.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/SpeechSpeedScript.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/PlayerDP.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/MyRockPaperScissorsScript.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/IntroContourStrategy.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/PathWithComputeShader.cs" />
@@ -77,7 +73,6 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroTracer.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoLineCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoHandle.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/RectangleSpawner.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/GridForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/HapticTexture.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/TactileNavMesh.cs" />
@@ -99,13 +94,10 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroSpeaker.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/MacOSSpeechOut.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/DualPantoSync.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/RoomEchoManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/IntroManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroPause.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/DialogManager.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/04/PlayerSimple.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/05/DumbEnemy.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBehaviour.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ActivateObstaclesSphere.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/DP/PlayerRecoil.cs" />
@@ -132,12 +124,20 @@
      <Compile Include="Assets/Scenes/Rogue/Scripts/DP/RoomManager.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/07/GridRoomSpawner.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/EnemyAttack.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridSystem.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ItHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Level.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/MovingObstacleManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/CenterForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/LinuxSpeechOut.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/PlayerDP.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridManager.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/RoomEchoManager.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/EnemyAttackDP.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/05/DumbEnemy.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/DP/HealthTextUI.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/RectangleSpawner.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/FootSteps.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/oldScripts/GridSystem.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/Sound/SoundManager.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
