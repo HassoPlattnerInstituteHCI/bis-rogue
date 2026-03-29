@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class PlayerControllerCollisions : MonoBehaviour
 {
-    [SerializeField]
     [Range(0.1f, 1f)]
     public float moveStep = 1f;
 
     public GameObject map;
 
-    [SerializeField]
     [Range(0.05f, 0.5f)]
     public float stepCooldown = 0.15f; // Zeit zwischen Schritten beim Halten
 

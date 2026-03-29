@@ -84,7 +84,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroducerEditor.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/GameManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/MyDialogScript.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/RogueManager.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/RogueGameManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroWithAudio.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/WindowsSpeechOut.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Resources/UIManager.cs" />
@@ -109,7 +109,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/LanguageSwitchScript.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/MySpeechInScript.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/RailPolyline.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/06/SmartEnemy.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/04/EnemyMovement.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/SpeechBase.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ObjectOfInterest.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoParallelIntros.cs" />

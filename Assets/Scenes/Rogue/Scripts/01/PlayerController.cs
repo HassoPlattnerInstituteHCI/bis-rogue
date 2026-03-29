@@ -1,22 +1,21 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0.1f, 1f)]
+    [Range(0.1f, 1f)] // use Range attribute to make it easier to adjust in the inspector
     public float moveStep = 1f;
 
+    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
+
+    // Update is called once per frame
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             transform.position += new Vector3(0f, 0f, moveStep);
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(moveStep, 0f, 0f);
         }
-
     }
 
 }

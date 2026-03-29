@@ -5,10 +5,10 @@ using System;
 
 public class PlayerSimple : MonoBehaviour
 {
-
-    public int maxHealth = 100;
+    public int maxHealth = 3;
     public int currentHealth;
 
+    // Armor Class (AC) determines how difficult it is for enemies to hit the player
     public int playerAC = 3;
 
     private float lastAttackTime = -Mathf.Infinity;
@@ -16,13 +16,22 @@ public class PlayerSimple : MonoBehaviour
 
     public event Action<int> OnHealthChanged;
 
-
-
     private void Awake()
     {
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth);
     }
+
+    public void Start()
+    {
+
+    }
+
+    public void Update()
+    {
+        
+    }
+
     // Handles collisions with enemies, food items, and finish point
     void OnTriggerEnter(Collider other)
     {
@@ -49,7 +58,6 @@ public class PlayerSimple : MonoBehaviour
         }
     }
 
-
     public void HitByEnemy(int enemyLevel)
     {
         // roll 1..20 inclusive for attack (original rogue like system)
@@ -59,7 +67,6 @@ public class PlayerSimple : MonoBehaviour
             TakeDamage(1);
         }
     }
-
 
     public void TakeDamage(int amount)
     {
@@ -74,7 +81,7 @@ public class PlayerSimple : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
+        currentHealth = Math.Min(maxHealth, currentHealth+amount);
         OnHealthChanged?.Invoke(currentHealth);
     }
 

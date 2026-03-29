@@ -7,14 +7,14 @@ public class Player : MonoBehaviour
 
     private float lastAttackTime = -Mathf.Infinity;
     private float attackCooldown = 3.0f; // in seconds
-    private RogueManager rogueManager;
+    private RogueGameManager rogueManager;
 
    
 
 
     void Start()
     {
-        rogueManager = FindObjectOfType<RogueManager>();
+        rogueManager = FindObjectOfType<RogueGameManager>();
         if (rogueManager == null)
             Debug.LogWarning("RogueManager not found in scene.");
     }
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Food"))
         {
-            Heal();
+            //Heal();
 
             Destroy(collision.gameObject.transform.parent.gameObject);
         }
@@ -50,10 +50,10 @@ public class Player : MonoBehaviour
 
 
 
-    private void Heal()
-    {
-        rogueManager.playerHealth++;
-    }
+    // private void Heal()
+    // {
+    //     rogueManager.playerHealth++;
+    // }
 
     public void HitEnemy(EnemyAttack enemyScript)
     {

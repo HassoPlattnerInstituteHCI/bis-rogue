@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmartEnemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
     [Range(0.0f, 10.0f)]
     public float speed = 5f;
-
 
     private GameObject player;
 
     private Vector3 lastPlayerPosition = Vector3.zero;
 
-
-    private Vector2 roomCenter;
-    private Vector2 roomSize;
-
     private bool playerInRange = false;
 
-
     //Room mesurements
-    private float roomMaxX;
-    private float roomMinX;
-    private float roomMaxZ;
-    private float roomMinZ;
+    private Vector2 roomCenter;
+    private Vector2 roomSize;
+    
+    private float roomMaxX = 1000f;
+    private float roomMinX = -1000f;
+    private float roomMaxZ = 1000f;
+    private float roomMinZ = -1000f;
     private float roomTolerance = 0.1f;
 
     void Start()
