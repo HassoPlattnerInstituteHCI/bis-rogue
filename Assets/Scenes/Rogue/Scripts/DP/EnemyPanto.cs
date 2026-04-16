@@ -104,11 +104,11 @@ public class EnemyPanto : MonoBehaviour
     }
 
     // move enemy towards player, if player is in range
-    private void MoveEnemy()
+    private async Task MoveEnemy()
     {
         if (meHandle == null) return;
-
-        if (!CheckPlayerInRange())
+        bool playerInRange = await CheckPlayerInRange();
+        if (!playerInRange)
         {
             return; // Player is out of range
         }
@@ -133,7 +133,7 @@ public class EnemyPanto : MonoBehaviour
     }
 
     // check if player is within room bounds plus tolerance
-    bool CheckPlayerInRange()
+    async Task<bool> CheckPlayerInRange()
     {
 
         Vector3 playerPosLocal = meHandle.GetPosition();
@@ -143,7 +143,7 @@ public class EnemyPanto : MonoBehaviour
             PlayEnemyIsPresentSound(playerPosLocal);
             if (playerInRange == false)
             {
-                lowerHandle.SwitchTo(this.gameObject, 100.0f);
+                await lowerHandle.SwitchTo(this.gameObject, 100.0f);
                 playerInRange = true;
             }
             return true;

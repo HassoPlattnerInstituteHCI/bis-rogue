@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DualPantoToolkit;
 
-public class RogueManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
     [SerializeField]

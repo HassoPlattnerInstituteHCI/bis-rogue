@@ -7,14 +7,14 @@ public class Player : MonoBehaviour
 
     private float lastAttackTime = -Mathf.Infinity;
     private float attackCooldown = 3.0f; // in seconds
-    private RogueManager rogueManager;
+    private GameManager rogueManager;
 
    
 
 
     void Start()
     {
-        rogueManager = FindObjectOfType<RogueManager>();
+        rogueManager = FindObjectOfType<GameManager>();
         if (rogueManager == null)
             Debug.LogWarning("RogueManager not found in scene.");
     }

@@ -39,10 +39,13 @@ public class RogueManagerDP : MonoBehaviour
     {
         FindPantoColliders();
         DisableCollider();
-        TransformPlayerToSpawn();
+        await Task.Delay(2000);
+        await TransformPlayerToSpawn();
+        await PlayerReachedSpawn();
+        EnableCollider();
     }
 
-    public void PlayerReachedSpawn()
+    public async Task PlayerReachedSpawn()
     {
         EnableCollider();
         var gridManager = GameObject.FindObjectOfType<GridRoomSpawner>();
@@ -56,17 +59,18 @@ public class RogueManagerDP : MonoBehaviour
         if (roomManager != null)
         {
             roomManager.Reset();
-            roomManager.Create();
+            await roomManager.Create();
         }
     }
 
-    async void TransformPlayerToSpawn()
+    async Task TransformPlayerToSpawn()
     {
         if (upperHandle != null && lowerHandle != null)
         {
-            await upperHandle.MoveToPosition(spawnPositionUpperHandle, 50f);
-            await lowerHandle.MoveToPosition(spawnPositionLowerHandle, 50f);
+            await upperHandle.MoveToPosition(spawnPositionUpperHandle, 100f);
+            await lowerHandle.MoveToPosition(spawnPositionLowerHandle, 100f);
         }
+        
     }
 
     private void FindPantoColliders()
@@ -87,11 +91,12 @@ public class RogueManagerDP : MonoBehaviour
         }
     }
 
-    private void DisableCollider()
+    private async Task DisableCollider()
     {
         foreach (PantoCollider collider in pantoColliders)
         {
             collider.Disable();
+            await Task.Delay(10);
         }
     }
 

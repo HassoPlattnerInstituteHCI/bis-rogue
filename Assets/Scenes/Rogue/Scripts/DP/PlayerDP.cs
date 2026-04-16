@@ -37,7 +37,7 @@ public class PlayerDP : MonoBehaviour
             Destroy(other.gameObject);
             SoundManager.Instance.Play("LevelComplete");
             await System.Threading.Tasks.Task.Delay(2000);
-            RogueManager rogueManager = FindObjectOfType<RogueManager>();
+            RogueManagerDP rogueManager = FindObjectOfType<RogueManagerDP>();
             if (rogueManager != null)
             {
                 rogueManager.LevelFinished();

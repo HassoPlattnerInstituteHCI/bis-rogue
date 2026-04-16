@@ -28,31 +28,33 @@ public class RoomManager : MonoBehaviour
 
     private Vector3 spawnPosition;
 
-    private GameObject RoomObstacles;
+    public GameObject RoomObstacles;
 
-    void Start()
+    async void Start()
     {
-        // if (RoomObstacles == null)
-        // {
-        //     Instantiate(RoomObstacles);
-        // }
-        Create();
+        if (RoomObstacles == null)
+        {
+            Instantiate(RoomObstacles);
+        }
+        await Create();
     }
 
-    public async void Create()
+    public async Task Create()
     {
+        await Task.Delay(1000); // wait a second to ensure all rooms are initialized
         FindAllRooms();
         Debug.Log("Number of rooms: " + rooms.Count);
-        await Task.Delay(1000); // wait a second to ensure all rooms are initialized
+       
         CreateRoomObsticles();
     }
 
     public void Reset()
     {
-        foreach(Transform child in RoomObstacles.GetComponentsInParent<Transform>())
+        foreach (Transform child in RoomObstacles.transform)
         {
             Destroy(child.gameObject);
         }
+        rooms.Clear();
     }
 
     void CreateRoomObsticles()
@@ -113,7 +115,7 @@ public class RoomManager : MonoBehaviour
                 {
                     // add finish point to finish room
                     Vector3 finishPointPos = new Vector3(finishRoom.transform.position.x, finishRoom.transform.position.y + 0.5f, finishRoom.transform.position.z);
-                    Instantiate(finishPointPrefab, finishPointPos, Quaternion.identity);
+                    Instantiate(finishPointPrefab, finishPointPos, Quaternion.identity, RoomObstacles.transform);
                     AddTextToSpawnRoom(spawnRoom, rooms.Count, roomId);
                 }
                 roomScript.UpdateRoomVisibility();
@@ -146,7 +148,7 @@ public class RoomManager : MonoBehaviour
         var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
         Vector3 foodPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
 
-        return Instantiate(foodPrefab, foodPosition, Quaternion.identity);
+        return Instantiate(foodPrefab, foodPosition, Quaternion.identity, RoomObstacles.transform);
     }
 
     // add an enemy to the room at a random position
@@ -155,7 +157,7 @@ public class RoomManager : MonoBehaviour
         var (xPos, zPos, roomSize) = GetRandomPositionInRoom(room);
         Vector3 enemyPosition = new Vector3(xPos, room.transform.position.y + 0.5f, zPos);
 
-        var enemyGO = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
+        var enemyGO = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity, RoomObstacles.transform);
         var enemy = enemyGO.GetComponent<EnemyPanto>();
         enemy.SetRoomBounds(new Vector2(room.transform.position.x, room.transform.position.z),
                 new Vector2(roomSize.x, roomSize.z));

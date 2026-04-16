@@ -7,7 +7,7 @@ using SpeechIO;
 
 namespace Rogue
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager2 : MonoBehaviour
     {
         [SerializeField]
         public GameObject player;

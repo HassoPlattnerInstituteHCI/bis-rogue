@@ -575,6 +575,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392021925}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &414041716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414041717}
+  m_Layer: 0
+  m_Name: Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414041717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414041716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3275292, y: 9.243015, z: 1.208308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &514488787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 826605487606422808, guid: f08d327e9fb42f94d97ba9d1d226d418, type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 826605487606422808, guid: f08d327e9fb42f94d97ba9d1d226d418, type: 3}
       propertyPath: m_Enabled
@@ -914,6 +945,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6518104830255856776, guid: 3b40b3376dc104193a5f68a16ea7ba76, type: 3}
   finishPointPrefab: {fileID: 7245530447037590223, guid: 5cce610bad2af4b57a1e21ba0925d1ab, type: 3}
   enemySpawnProbability: 73
+  RoomObstacles: {fileID: 414041716}
 --- !u!64 &959453744
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1531,6 +1563,7 @@ GameObject:
   - component: {fileID: 1975699875}
   - component: {fileID: 1975699876}
   - component: {fileID: 1975699877}
+  - component: {fileID: 1975699878}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1607,8 +1640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815986ca761bd423b86803903de6be7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 5
-  playerAC: 3
 --- !u!114 &1975699875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1621,15 +1652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd41ab467c3de445599bf5c095c2bb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHitSound: {fileID: 8300000, guid: 0f30455e59cd443a7b9522d64bd24bf4, type: 3}
-  enemyHitSound: {fileID: 8300000, guid: f540875b93fe04705b6700b8ca403542, type: 3}
-  enemyPresentSound: {fileID: 8300000, guid: 9c0e8f0b1662e4e07bc263aa6c92b665, type: 3}
-  enemyDeathSound: {fileID: 8300000, guid: 703e25036b4a648abae13b501c874da2, type: 3}
-  playerDeathSound: {fileID: 8300000, guid: efe72a2c18b9c4382a01c70dbb165f13, type: 3}
-  itemPickupSound: {fileID: 8300000, guid: 4daaf3540af0c477ca8c95ecdc51ba5a, type: 3}
-  levelCompleteSound: {fileID: 8300000, guid: 1aef8a90c32f7469ba4db2dc6df0edee, type: 3}
-  defaultVolume: 1
-  audioSource: {fileID: 0}
 --- !u!114 &1975699876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,3 +1700,15 @@ MonoBehaviour:
   - name: LevelComplete
     clip: {fileID: 8300000, guid: 1aef8a90c32f7469ba4db2dc6df0edee, type: 3}
     volume: 1
+--- !u!114 &1975699878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975699869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25225602e4fd34c6788d6f10ba311ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
