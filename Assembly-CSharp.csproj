@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/LinuxSpeechIn.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/DP/HealthTextUI.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Sound/PlayerWalkingSoundDP.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBoxCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Legacy/ForcefieldLabyrinth/LabyrinthGameManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ForceField.cs" />
@@ -53,7 +54,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/Vis.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/VoiceCommandBase.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/Sound/RoomSpeechOnEntry.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/Sound/PlayerWalkingSound.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Sound/PlayerWalkingSoundSimple.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/MacOSSpeechIn.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ColliderPolyline.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ObstacleManager.cs" />

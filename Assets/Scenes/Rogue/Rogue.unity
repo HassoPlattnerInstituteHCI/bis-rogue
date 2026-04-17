@@ -941,10 +941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 7071627844949919901, guid: 3b7b34dfd44a347d59db2922e5d5a311, type: 3}
-  roomPrefab: {fileID: 7973606445352907781, guid: 9445c430569f244638d9f2c616946e1a, type: 3}
+  foodSpawnProbability: 50
   enemyPrefab: {fileID: 6518104830255856776, guid: 3b40b3376dc104193a5f68a16ea7ba76, type: 3}
   finishPointPrefab: {fileID: 7245530447037590223, guid: 5cce610bad2af4b57a1e21ba0925d1ab, type: 3}
-  enemySpawnProbability: 73
+  enemySpawnProbability: 69
   RoomObstacles: {fileID: 414041716}
 --- !u!64 &959453744
 MeshCollider:
@@ -991,13 +991,13 @@ MonoBehaviour:
   rows: 3
   columns: 3
   roomPrefab: {fileID: 7973606445352907781, guid: 9445c430569f244638d9f2c616946e1a, type: 3}
-  minRoomSize: 0.3
+  minRoomSize: 0.35
   maxRoomSize: 0.5
-  probabilityOfRoomInCell: 80
-  probabilityOfDarkRoom: 20
+  probabilityOfRoomInCell: 70
+  probabilityOfDarkRoom: 0
   spawnRoomInTopCenter: 1
   corridorPrefab: {fileID: 7081821655740613415, guid: 346a6666464974a41b501704fd1073ec, type: 3}
-  corridorWidth: 0.02
+  corridorWidth: 0.01
   spawnedRooms: []
 --- !u!1 &970189445
 GameObject:
@@ -1146,13 +1146,12 @@ GameObject:
   - component: {fileID: 992375334}
   - component: {fileID: 992375333}
   - component: {fileID: 992375332}
-  - component: {fileID: 992375330}
-  - component: {fileID: 992375336}
   - component: {fileID: 992375338}
   - component: {fileID: 992375339}
   - component: {fileID: 992375340}
   - component: {fileID: 992375341}
   - component: {fileID: 992375342}
+  - component: {fileID: 992375343}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1160,21 +1159,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &992375330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992375329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1b8859269b8a4d5194fc44578765e23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveStep: 0.2
-  map: {fileID: 959453738}
-  stepCooldown: 0.15
 --- !u!136 &992375332
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1254,19 +1238,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &992375336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992375329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e85f9f14d8c4e939355f16669f0b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveStep: 0.3
 --- !u!54 &992375338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1317,7 +1288,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992375329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d928ad431c62f47a9957aa3c435ea7e2, type: 3}
   m_Name: 
@@ -1343,6 +1314,24 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   playerAC: 7
+--- !u!114 &992375343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992375329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930399c4292aa434985d780cf22e94af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSoundRoom: {fileID: 8300000, guid: 128e6b0718d124caeb1f6e963d1d5862, type: 3}
+  volume: 1
+  corridorLowPassCutoff: 22000
+  roomReverbPreset: 3
+  corridorReverbPreset: 2
+  movementDetection: 0.108
 --- !u!1 &1504913467
 GameObject:
   m_ObjectHideFlags: 0

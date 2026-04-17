@@ -12,7 +12,8 @@ public class RoomManager : MonoBehaviour
     private GameObject foodPrefab;
 
     [SerializeField]
-    private GameObject roomPrefab;
+    [Range(0, 100)]
+    public int foodSpawnProbability = 50; // percentage chance to spawn an enemy in a room
 
     [SerializeField]
     private GameObject enemyPrefab;
@@ -97,8 +98,12 @@ public class RoomManager : MonoBehaviour
             {
                 var roomScript = room.GetComponent<Room>();
                 // add food to each room
-                var foodGO = AddFoodToRoom(room);
-                roomScript.gameObjectsInRoom.Add(foodGO);
+                int randomFood = Random.Range(0, 100);
+                if (randomFood < foodSpawnProbability)
+                {
+                    var foodGO = AddFoodToRoom(room);
+                    roomScript.gameObjectsInRoom.Add(foodGO);
+                }
                 if (!roomScript.isSpawnRoom)  // <-- isSpawnRoom ist IMMER false!
                 {
                     // add enemy based on probability

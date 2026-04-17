@@ -40,7 +40,7 @@ public class PlayerDP : MonoBehaviour
             RogueManagerDP rogueManager = FindObjectOfType<RogueManagerDP>();
             if (rogueManager != null)
             {
-                rogueManager.LevelFinished();
+                await rogueManager.LevelFinished();
             }
         }
     }
@@ -90,7 +90,7 @@ public class PlayerDP : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
+        currentHealth = Math.Min(maxHealth, currentHealth+amount);
         OnHealthChanged?.Invoke(currentHealth);
     }
 

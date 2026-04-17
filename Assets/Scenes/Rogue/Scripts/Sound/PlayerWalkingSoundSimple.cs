@@ -4,7 +4,7 @@ using UnityEngine;
 using DualPantoToolkit;
 using System.ComponentModel;
 
-public class PlayerWalkingSound : MonoBehaviour
+public class PlayerWalkingSoundSimple : MonoBehaviour
 {
 
     public AudioClip walkSound;
