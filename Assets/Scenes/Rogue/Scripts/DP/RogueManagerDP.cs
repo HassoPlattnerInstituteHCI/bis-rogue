@@ -5,6 +5,7 @@ using DualPantoToolkit;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using UnityEditor;
 
 public class RogueManagerDP : MonoBehaviour
 {
@@ -37,12 +38,14 @@ public class RogueManagerDP : MonoBehaviour
 
     public async Task LevelFinished()
     {
-        FindPantoColliders();
-        DisableCollider();
-        await Task.Delay(2000);
-        await TransformPlayerToSpawn();
-        await PlayerReachedSpawn();
-        EnableCollider();
+        EditorApplication.isPlaying = false;
+
+        // FindPantoColliders();
+        // DisableCollider();
+        // await Task.Delay(2000);
+        // await TransformPlayerToSpawn();
+        // await PlayerReachedSpawn();
+        // EnableCollider();
     }
 
     public async Task PlayerReachedSpawn()
