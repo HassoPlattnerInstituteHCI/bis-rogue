@@ -59,6 +59,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ColliderPolyline.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ObstacleManager.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/DP/EnemyAttackDP.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/ObstacleManager2.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/Helpers/Room.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/UpperHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/SpeechIn.cs" />
