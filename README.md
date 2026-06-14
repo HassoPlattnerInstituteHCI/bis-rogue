@@ -1,5 +1,5 @@
 # DualPanto-Rogue
-Unity Version: **2021.3.0f1**
+Unity Version: **6000.4.6f1**
 
 ![Rogue for DualPanto](docs/img/cover.png)
 
@@ -13,10 +13,6 @@ ___
 
 ## Getting Started
 
-##### ⚠️ Enable Panto-Debug-Mode
-
-🖼️ *(Placeholder for Debug Image)*
-
 > **💡 Tip:**
 > When pressing Play, Unity shows a brown screen. Press **"b"** on your keyboard to make the scene visible.
 
@@ -25,59 +21,23 @@ ___
 
 ### Step-by-Step Tutorial
 
-**1. Add Sounds to SoundManager Script**
-   - GameObjects that need to be changed:
-     - PlayerSimple.cs
-     - EnemyAttack.cs
-   - 🖼️(Placeholder for todo)
+#### 1. Add ItemPickupSound to SoundManager
+   - Select the Manager in the Scene and go to SoundManager. There you will find a List of Sounds.
+     - Press `+` and give the sound a name (e.g. "ItemPickupSound", "HealSound").
+     - Add a sound clip to the item
+      <img src="docs/img/SoundTask1.png" height="600">
+  - Now we need to play the sound when a player picks up an item.
+     - **TODO**: go to `PlayerSimple.cs` and edit the TODO.
 
-**2. How to detect walking?**
-   - Edit the `PlayerWalking.cs` script to handle walking **(ToDO)**
-   - 🖼️(Placeholder for todo)
+#### 2. Text-To-Speech
+   - Select the Manager in the Scene and go to RogueGameManager. 
+    - Enter a text (introductionText) you want to hear when starting the game
+      <img src="docs/img/SoundTask2.png" height="600">
+     - **TODO**: go to `RogueGameManager.cs` and edit the TODO.
 
-**3. Speech on Entry**
-   - add to random room go
-   - 🖼️(Placeholder for todo)
-
-
-___
-#### DualPanto Haptics
-
-1. add unity handle to game -> move to position, move around with unity handle
-2. add player recoil when player collides with enemy
-
-
-### meeting ideas
-
-- Food before room collision (done)
-- dumb enemy??? (do we need dumpEnemy or just use SmartEnemy and set room to infinity) (done)
-- GameManager (done)
-
-
-### nice to have
-- spawn player at spawn point
-
-### TODO until Bis:
-- GamePlay
-  - write a todo
-  - finish readme
-- GameSounds Repo (all scripts ready)
-  - write a readme
-  - document the scripts
-  - write a todo
-- DP Repo with all scripts
-  - write a readme
-  - document the scripts
-  - write a todo
-
-
-- delete scripts
-- insert images
-- github classroom???
-
-
-### other ideas
-- script viewer dp
-
-
+#### 3. AI Speech Audio Clip
+- go to ... and create an audio introduction clip
+- import the sound into Unity by dropping it inside the Assets view. 
+- Select the manager in the scene again and add the sound in the RogueGameManager.
+  <img src="docs/img/SoundTask3.png" height="600">
   

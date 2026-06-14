@@ -36,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            SoundManager.Instance.Play("EnemyDeath");
+            SoundManager.Instance.Play("woop");
         }
     }
 }
