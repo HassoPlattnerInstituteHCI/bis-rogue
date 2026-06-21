@@ -32,11 +32,14 @@ public class RogueGameManager : MonoBehaviour
         }
     }
 
-    // TODO: 
+    // TODO: implement tts for room introduction text
     async void IntroductionSpeech()
     {
-        SpeechOut speechOut = new SpeechOut();
-        //await speechOut.Speak(introductionText);
+        // TODO: create a new SpeechOut object.
+        //var speechOut = ; //uncomment and complete this line
+        
+        // TODO: use the Speak method of the SpeechOut object to speak the introductionText.
+        //await  ; // uncomment and complete this line to await the speech synthesis
     }
 
     public void LevelFinished()

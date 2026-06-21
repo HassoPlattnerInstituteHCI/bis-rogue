@@ -162,15 +162,16 @@ public class GridRoomSpawner : MonoBehaviour
         rooms.Add(roomData);
         grid[row, col] = roomId;
     }
-    private async Task AddRoomToMap(RoomData roomData, bool isSpawnRoom = false)
+    private void AddRoomToMap(RoomData roomData, bool isSpawnRoom = false)
     {
         Vector3 pos = RoomWorldCenterPos(roomData.col, roomData.row);
 
         var room = Instantiate(roomPrefab, pos, Quaternion.identity, this.gameObject.transform);
 
+        //TODO: comment out the line below
         if (!isSpawnRoom)
         {
-            room.GetComponent<RoomSpeechOnEntry>().introductionText = $"Room {roomData.id}";
+            //room.GetComponent<RoomSpeechOnEntry>().introductionText = $"Room {roomData.id}";
         }
         
         // Scale the room to its calculated dimensions

@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
         public AudioClip clip;
 
         [Range(0f, 1f)]
-        public float volume = 1.0f; // optional: Lautstärke pro Sound
+        public float volume = 1.0f;
 
         public SoundEntry(string name, AudioClip clip, float volume = 1.0f)
         {
@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public List<SoundEntry> sounds;   // sichtbar im Inspector
+    public List<SoundEntry> sounds;
 
     private AudioSource audioSource;
 
@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound nicht gefunden: " + name);
+            Debug.LogWarning("Sound not found: " + name);
         }
     }
 
@@ -64,7 +64,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Sound nicht gefunden: " + name);
+            Debug.LogWarning("Sound not found: " + name);
         }
     }
 
@@ -76,7 +76,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("AudioClip ist null");
+            Debug.LogWarning("AudioClip is null");
         }
     }
 }
