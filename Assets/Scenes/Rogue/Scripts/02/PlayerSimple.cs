@@ -18,7 +18,6 @@ public class PlayerSimple : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth);
     }
 

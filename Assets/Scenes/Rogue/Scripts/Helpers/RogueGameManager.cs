@@ -11,8 +11,17 @@ public class RogueGameManager : MonoBehaviour
 
     void Start()
     {
-        player.OnHealthChanged += UpdateText;
-        UpdateText(player.currentHealth);
+        player = FindAnyObjectByType<PlayerSimple>();
+        if (player == null)
+        {
+            Debug.Log("PlayerSimple component not found in scene.");
+            return;
+        }
+        else
+        {
+            player.OnHealthChanged += UpdateText;
+            UpdateText(player.currentHealth);
+        }
     }
 
     public void LevelFinished()

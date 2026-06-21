@@ -1,6 +1,6 @@
 # DualPanto-Rogue
 
-Unity Version: **2021.3.0f1**
+Unity Version: **6000.3.17f1**
 
 ![Rogue for DualPanto](docs/img/cover.png)
 
@@ -15,19 +15,8 @@ ___
 
 ### Step-by-Step Tutorial
 
-#### Overview
-- [DualPanto-Rogue](#dualpanto-rogue)
-  - [Resources](#resources)
-  - [Rogue Gameplay 🎮](#rogue-gameplay-)
-    - [Step-by-Step Tutorial](#step-by-step-tutorial)
-      - [Overview](#overview)
-      - [1. Add Player and Keyboard Controls](#1-add-player-and-keyboard-controls)
-      - [2. Add Collectible Food Items](#2-add-collectible-food-items)
-      - [3. Create Room](#3-create-room)
-      - [4. Add Enemy with Movement](#4-add-enemy-with-movement)
-      - [5. Create Prefabs and Random Spawning](#5-create-prefabs-and-random-spawning)
-      - [6. Add Procedural Map Generation](#6-add-procedural-map-generation)
-      - [(extra) Apply material to GameObjects 🎨](#extra-apply-material-to-gameobjects-)
+#### 0. Check
+- 0.1: Have you run `git submodule update --init --recursive` on this repository?
 
 #### 1. Add Player and Keyboard Controls
   - **1.1** Create a capsule in the scene (right-click in the Hierarchy window → 3D Object → Capsule/Sphere)
@@ -36,10 +25,16 @@ ___
     <img src="docs/img/1_rename.png" height="600">
   - **1.3** Change size of the GameObject in the Inspector (click on GameObject → right window → change values inside scale)
     <img src="docs/img/1_inspector.png" height="600">
-  - **1.4** Attach the `PlayerController.cs` script to the Player GameObject **(ToDo)** (click on the GameObject → scroll down the Inspector window → click add component)
+  - **1.4** Apply material to GameObjects (Player) 🎨
+    - click on the GameObject you want add material (Player)
+    - go to MeshRenderer → Materials → +
+    - search for "green", ("yellow", "red")
+      <img src="docs/img/extra_material_1.png" height="600">
+      <img src="docs/img/extra_material_2.png" height="400">
+  - **1.5** Attach the `PlayerController.cs` script to the Player GameObject **(ToDo)** (click on the GameObject → scroll down the Inspector window → click add component)
     <img src="docs/img/1_addComponent.png" height="600"><img src="docs/img/1_addComponent2.png" height="400">
-  - **1.5** TODO: add more movement in the `PlayerController.cs` script
-  - **1.6** Test movement using the arrow keys (press play on center top)
+  - **1.6** TODO: add more movement in the `PlayerController.cs` script
+  - **1.7** Test movement using the arrow keys (press play on center top)
     <img src="docs/img/1_play.png" height="600">
 
 #### 2. Add Collectible Food Items

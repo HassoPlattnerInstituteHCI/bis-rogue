@@ -22,7 +22,18 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(0f, 0f, moveStep);
         }
-        //else if ()... // add more movement directions here (down, left, right)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //todo: move down (z-axis)
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            //todo: move left (x-axis)
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //todo: move right (x-axis)
+        }
         
 
     }
