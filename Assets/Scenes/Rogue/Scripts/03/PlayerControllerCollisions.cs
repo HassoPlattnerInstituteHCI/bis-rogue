@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerControllerCollisions : MonoBehaviour
 {
     [Range(0.1f, 1f)]
-    public float moveStep = 1f;
+    public float moveStep = 0.25f;
 
     public GameObject map;
 

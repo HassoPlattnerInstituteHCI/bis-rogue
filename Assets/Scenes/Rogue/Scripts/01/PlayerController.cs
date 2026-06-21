@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Range(0.1f, 1f)] // use Range attribute to make it easier to adjust in the inspector
-    public float moveStep = 1f;
+    public float moveStep = 0.25f;
 
     // Start is called before the first frame update
     void Start()

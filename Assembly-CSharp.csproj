@@ -147,8 +147,8 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoCompoundCollider.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
-    <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoCircularCollider.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoCircularCollider.cs" />
     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ActivateObstaclesSphere.cs" />
     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoCollider.cs" />
     <Compile Include="Assets/Scenes/Rogue/Scripts/other/RoomSpeechOnEntry.cs" />
@@ -188,6 +188,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
     <None Include="Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Oswald-Bold - OFL.txt" />
     <None Include="Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Roboto-Bold - AFL.txt" />
+    <None Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/ProjectSettings/ProjectVersion.txt" />
     <None Include="Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Anton OFL.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
@@ -207,7 +208,6 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/unity-dualpanto-toolkit/Assets/Resources/Visualization/ParticleVisualizatonShader.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/ProjectSettings/ProjectVersion.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
     <None Include="Assets/unity-dualpanto-toolkit/ProjectSettings/ProjectVersion.txt" />
     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />

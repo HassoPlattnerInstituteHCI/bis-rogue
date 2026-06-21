@@ -24,12 +24,12 @@ public class RoomSpawnRandom : MonoBehaviour
 
     }
 
-    void FindAllRooms()
+   void FindAllRooms()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
-            if (child.CompareTag("Room") && child.GetComponent<Room>() != null)
+            if (child.CompareTag("Room"))
             {
                 rooms.Add(child);
             }
@@ -42,17 +42,28 @@ public class RoomSpawnRandom : MonoBehaviour
         foreach (GameObject room in rooms)
         {
             var roomComponent = room.GetComponent<Room>();
-            // add food to each room
             var foodGameObject = AddFoodToRoom(room);
-            roomComponent.gameObjectsInRoom.Add(foodGameObject);
-            // add enemy based on probability
-            if (Random.Range(0, 100) < enemySpawnProbability && !roomComponent.isSpawnRoom)
+            if (roomComponent == null)
             {
-                var enemyGameObject = AddEnemyToRoom(room);
-                roomComponent.gameObjectsInRoom.Add(enemyGameObject);
+                if (Random.Range(0, 100) < enemySpawnProbability)
+                {
+                    AddEnemyToRoom(room);
+                }
             }
-            roomComponent.UpdateRoomVisibility();
-            // add intro speech to non-spawn rooms
+            else
+            {
+                // add food to each room
+                roomComponent.gameObjectsInRoom.Add(foodGameObject);
+                // add enemy based on probability
+                if (Random.Range(0, 100) < enemySpawnProbability && !roomComponent.isSpawnRoom)
+                {
+                    var enemyGameObject = AddEnemyToRoom(room);
+                    roomComponent.gameObjectsInRoom.Add(enemyGameObject);
+                }
+                roomComponent.UpdateRoomVisibility();
+                // add intro speech to non-spawn rooms
+            }
+
         }
     }
 

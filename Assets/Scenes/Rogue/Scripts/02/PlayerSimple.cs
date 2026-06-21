@@ -6,7 +6,7 @@ using System;
 public class PlayerSimple : MonoBehaviour
 {
     public int maxHealth = 3;
-    public int currentHealth;
+    public int currentHealth = 2;
 
     // Armor Class (AC) determines how difficult it is for enemies to hit the player
     public int playerAC = 3;

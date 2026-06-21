@@ -16,7 +16,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && Time.time - lastAttackTime > attackCooldown)
+        if (Time.time - lastAttackTime > attackCooldown)
         {
             Debug.Log("Enemy attacking player: " + other.gameObject.name);
 
@@ -24,8 +24,9 @@ public class EnemyAttack : MonoBehaviour
             if (player != null)
             {
                 player.HitByEnemy(enemyLevel);
+                lastAttackTime = Time.time;
             }
-            lastAttackTime = Time.time;
+            
         }
     }
 
