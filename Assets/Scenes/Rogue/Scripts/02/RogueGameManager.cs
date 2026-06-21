@@ -15,16 +15,16 @@ public class RogueGameManager : MonoBehaviour
     public string introductionText;
 
     [Tooltip("When both AudioClip and introductionText are set, the AudioClip will be played.")]
-    public AudioClip introductionClip;
+    public string introductionClipName;
 
     void Start()
     {
         player.OnHealthChanged += UpdateText;
         UpdateText(player.currentHealth);
 
-        if (introductionClip != null)
+        if (!string.IsNullOrEmpty(introductionClipName))
         {
-            SoundManager.Instance.Play(introductionClip);
+            SoundManager.Instance.Play(introductionClipName);
         }
         else if (!string.IsNullOrEmpty(introductionText))
         {

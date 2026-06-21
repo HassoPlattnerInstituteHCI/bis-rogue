@@ -18,7 +18,6 @@ public class PlayerSimple : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth);
     }
 
@@ -91,8 +90,8 @@ public class PlayerSimple : MonoBehaviour
         currentHealth = Math.Min(maxHealth, currentHealth+amount);
         OnHealthChanged?.Invoke(currentHealth);
         
-        // use SoundManager.Instance.Play("NameOfSound") to play a sound effect when healing or picking up an item
-        SoundManager.Instance.Play("ItemPickup");
+        // TODO: use SoundManager.Instance.Play("NameOfSound") to play a sound effect when healing or picking up an item
+        
     }
 
     private void Die()

@@ -41,12 +41,15 @@ ___
 
 #### 3. TTS for every room
    - Every room has a `RoomSpeechOnEntry` component, which speaks its `introductionText` (via TTS) when the player enters.
-   - **TODO**: go to `GridRoomSpawner.cs` (`AddRoomToMap`) and uncomment the line that sets `introductionText = $"Room {roomData.id}"` on each spawned room.
+   - **TODO**: go to `GridRoomSpawner.cs` and uncomment the line that sets `introductionText = $"Room {roomData.id}"` on each spawned room.
    - Press Play and walk into a room. You should hear "Room \<id\>" announced when you enter.
  
-#### 4. AI Speech Audio Clip
-- go to ... and create an audio introduction clip
+#### 4. Speech Audio Clip
+- go to [luvvoice.com](https://luvvoice.com) or take your phone and create an audio introduction clip (mp3, wav)
 - import the sound into Unity by dropping it inside the Assets view. 
-- Select the manager in the scene again and add the sound in the RogueGameManager.
-  <img src="docs/img/SoundTask3.png" height="600">
+- Add the clip to the SoundManager and give it a name.
+  <img src="docs/img/SoundTask1.png" height="600">
+- Select the manager in the scene again and add the name for the clip in the RogueGameManager.
+ <img src="docs/img/SoundTask4.png" height="200">
+  
 
