@@ -35,7 +35,11 @@ public class PlayerSimple : MonoBehaviour
     // Handles collisions with enemies, food items, and finish point
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Food"))
+        // !!! TODO: implement player interactions with food !!!
+        // hint: use other.gameObject to get the collided object
+        // hint: use gameObject.CompareTag("TagName") to check if it's a food item
+        
+        if (other.gameObject.CompareTag("Food") && currentHealth < maxHealth)
         {
             Heal(1);
             Destroy(other.gameObject);

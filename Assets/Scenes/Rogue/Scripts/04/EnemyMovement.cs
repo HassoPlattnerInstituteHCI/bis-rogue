@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Range(0.0f, 10.0f)]
-    public float speed = 5f;
+    [Range(0.0f, 20.0f)]
+    public float speed = 4f;
 
     private GameObject player;
 
@@ -80,9 +80,21 @@ public class EnemyMovement : MonoBehaviour
             return; // Player is not moving
         }
 
-        lastPlayerPosition = player.transform.position;
+        // TODO: get players last position and move towards the player.
+        //get the position of a gameObject with  gameObjectName.transform.position;
 
-        Vector3 direction = (lastPlayerPosition - this.transform.position).normalized;
+        // TODO 1: get the position of the player
+        
+        lastPlayerPosition = player.transform.position; // TODO: replace with player position
+
+        Vector3 direction = new Vector3(0, 0, 0);
+
+        // TODO 2: get the direction vector from the enemy to the player and normalize it
+        // hint: use Vector3 direction = (targetPosition - currentPosition).normalized; to get the direction vector
+
+        //direction =
+        direction = (lastPlayerPosition - this.transform.position).normalized; // TODO: replace with direction to player
+        // dt is the time since the last frame, used to make movement framerate independent
         float dt = Time.deltaTime;
 
         Vector3 nextPos = this.transform.position + direction * speed * dt;

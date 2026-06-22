@@ -22,14 +22,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            transform.position += new Vector3(0f, 0f, -moveStep);
+            //todo: move down (z-axis)
+                transform.position += new Vector3(0f, 0f, -moveStep);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            //todo: move left (x-axis)
             transform.position += new Vector3(-moveStep, 0f, 0f);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            //todo: move right (x-axis)
             transform.position += new Vector3(moveStep, 0f, 0f);
         }
     }
