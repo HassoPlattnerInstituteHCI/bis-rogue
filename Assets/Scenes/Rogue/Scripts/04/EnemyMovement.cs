@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Range(0.0f, 1.0f)]
-    public float speed = 0.2f;
+    [Range(0.0f, 20.0f)]
+    public float speed = 4f;
 
     private GameObject player;
 
