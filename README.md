@@ -60,7 +60,7 @@ ___
 #### 3. Create Room
   - **3.1** The Map GameObject already includes a Mesh Collider (required for collision detection)
   - **3.2** Create a 3D Cube inside the Map GameObject (right-click on Map GameObject in Hierarchy → 3D Object → Cube)
-  - **3.3** Scale and position the cube to form a room that contains the Player
+  - **3.3** Scale and position the cube to form a room that contains the Player. Make sure that the Player and the Room are at the same y-coordinate.
   - **3.4** Remove the `PlayerController.cs` script from the Player
   - **3.5** Attach the `PlayerControllerCollision.cs` script to the Player GameObject, then assign the Map GameObject to its `Map` field in the Inspector — either drag the Map from the Hierarchy onto the field, or click the field and select it from the search popup.
   - **3.6** This enables proper collision detection between Player and Map
