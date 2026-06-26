@@ -171,7 +171,7 @@ public class GridRoomSpawner : MonoBehaviour
         //TODO: comment out the line below
         if (!isSpawnRoom)
         {
-            //room.GetComponent<RoomSpeechOnEntry>().introductionText = $"Room {roomData.id}";
+            room.GetComponent<RoomSpeechOnEntry>().introductionText = $"Room {roomData.id}";
         }
         
         // Scale the room to its calculated dimensions

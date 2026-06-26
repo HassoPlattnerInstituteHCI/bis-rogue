@@ -91,7 +91,7 @@ public class PlayerSimple : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth);
         
         // TODO: use SoundManager.Instance.Play("NameOfSound") to play a sound effect when healing or picking up an item
-        
+        SoundManager.Instance.Play("ItemPickup");
     }
 
     private void Die()
