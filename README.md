@@ -35,18 +35,20 @@ ___
    **Connection problem?**
    1. Select the **Panto** GameObject and verify that *Debug Mode* is disabled and the correct port is set.
    2. If everything looks correct but it still doesn't connect, unplug the panto and plug it back in, or press Play a few more times.
-   3. Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.
+   3. Open PyCharm and flash the firmware again [DualPanto Framework](https://github.com/HassoPlattnerInstituteHCI/dualpantoframework)
+   4. Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.
 
 #### 2. Render the room walls (PantoCompoundCollider)
 
-   - Select the **Map** and add the `PantoCompoundCollider.cs` script. Check **On Upper**.
-   - Press Play, wait for the scene to load, then press `E` to render the walls.
+   - **TODO:** Open `GridRoomSpawner.cs` and uncomment the lines that add the compound collider.
+   - Press Play and wait for the scene to load.
 
    **Walls not rendering?**
    1. While playing, the walls should appear as a black line. If they don't, check the panto collider you attached: is the right handle checked, are the Unity collider and panto collider set correctly, and is `isPassable` set to `false`?
    2. If that still doesn't work, check the **Manager** GameObject and confirm `ObstacleManager.cs` is attached.
 
    **Walls render but the panto doesn't move?**
+   - While playing, press `E` to enable the wall colliders, or `D` to disable them again.
    - Check that the battery is inserted, charged, and that the panto's power switch (on the back) is turned on.
    - Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.
 

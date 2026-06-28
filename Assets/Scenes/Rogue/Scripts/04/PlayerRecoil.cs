@@ -10,11 +10,11 @@ public class PlayerRecoil : MonoBehaviour
 
     [SerializeField]
     [Range(0.0f, 10.0f)]
-    private float recoilStrength = 3f;
+    private float recoilStrength = 1.5f;
 
     [SerializeField]
     [Range(1.0f, 10.0f)]
-    private float recoilSpeed = 5f;
+    private float recoilSpeed = 4f;
 
     private UpperHandle meHandle;
 
@@ -24,11 +24,11 @@ public class PlayerRecoil : MonoBehaviour
     }
 
     // checks for collision with enemy and applies recoil
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            var collisionPoint = collision.contacts[0].normal;
+            Vector3 collisionPoint = collision.ClosestPoint(transform.position);
             ApplyRecoil(collisionPoint);
         }
     }
@@ -43,7 +43,7 @@ public class PlayerRecoil : MonoBehaviour
         Vector3 recoilDirection = (collisionPoint.normalized - currentPosition.normalized).normalized;
 
         //strech the recoil direction by the recoil strength)
-        Vector3 finalRecoilDirection = currentPosition + recoilDirection * recoilStrength;
+        Vector3 finalRecoilDirection = currentPosition - recoilDirection * recoilStrength;
 
         //TODO: Move the player to the new position using the meHandle.MoveToPosition method
         await meHandle.MoveToPosition(finalRecoilDirection, recoilSpeed);

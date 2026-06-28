@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/WindowsVoiceProject/WindowsVoice.cs" />
+     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/SoundManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ForceField.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ColliderRegistry.cs" />
+     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ObstacleSpeechOnEntry.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroWithAudio.cs" />
@@ -88,6 +90,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Legacy/Scripts/PantoObjectMenu.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoBehaviour.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/RotatingHandle.cs" />
+     <Compile Include="Assets/Scenes/Rogue/Scripts/02/GridRoomSpawner.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/MyCancellableSpeechOutScript.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LevelIntroducer/PantoIntroducerEditor.cs" />
@@ -111,7 +114,6 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/LowerHandle.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/Advanced/DialogManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ColliderPolyline.cs" />
-     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/ObstacleManager.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/gameplay/RoomSpawnRandom.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/03/EnemyMovement.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
@@ -121,6 +123,7 @@
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
+     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/ObstacleManager.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/SpeechBase.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/EnemyPanto.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/other/GameManager.cs" />
@@ -158,6 +161,7 @@
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Output Core Scripts/LinuxSpeechOut.cs" />
      <Compile Include="Assets/Scenes/Rogue/Scripts/04/PlayerRecoil.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
+     <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/PantoMeshCollider.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Resources/clipper_library/Properties/AssemblyInfo.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/RoomElement.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/ExampleScripts/GenerateObstacles.cs" />
@@ -167,7 +171,6 @@
      <Compile Include="Assets/Scenes/Rogue/Scripts/gameplay/EnemyAttack.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Example Speech Scripts/MySpeechInScript.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/Resources/UIManager.cs" />
-     <Compile Include="Assets/Scenes/Rogue/Scripts/gameplay/GridRoomSpawner.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/PantoScripts/IntroContourStrategy.cs" />
      <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets/unity-dualpanto-toolkit/Assets/SpeechIOForUnity/Assets/Scripts/Speech Input Core Scripts/WindowsSpeechIn.cs" />

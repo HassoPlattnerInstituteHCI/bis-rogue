@@ -91,6 +91,8 @@ public class GridRoomSpawner : MonoBehaviour
         Create();
     }
 
+
+    //TODO : uncomment below to add collider to the grid room spawner
     public void Create()
     {
         CalculateGridFromPlane();
@@ -99,8 +101,11 @@ public class GridRoomSpawner : MonoBehaviour
         CreateRooms();
         CreateCorridor();
 
-        this.gameObject.AddComponent<PantoCompoundCollider>();
-        this.gameObject.GetComponent<PantoCompoundCollider>().onLower = false;
+        // TODO: uncomment below
+        //var collider = this.gameObject.AddComponent<PantoCompoundCollider>();
+        
+        // TODO: uncomment below
+        //collider.onLower = false;
     }
 
     void CalculateGridFromPlane()
@@ -168,7 +173,6 @@ public class GridRoomSpawner : MonoBehaviour
 
         var room = Instantiate(roomPrefab, pos, Quaternion.identity, this.gameObject.transform);
 
-        //TODO: comment out the line below
         if (!isSpawnRoom)
         {
             room.GetComponent<RoomSpeechOnEntry>().introductionText = $"Room {roomData.id}";
