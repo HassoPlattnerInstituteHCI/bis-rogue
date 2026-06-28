@@ -17,7 +17,7 @@ ___
 > When pressing Play, Unity shows the screen. Press **"b"** on your keyboard to make the scene invisible.
 
 
-## Rogue Sounds 📣
+## Rogue Haptics 🦾
 
 ### Step-by-Step Tutorial
 
