@@ -102,10 +102,10 @@ public class GridRoomSpawner : MonoBehaviour
         CreateCorridor();
 
         // TODO: uncomment below
-        //var collider = this.gameObject.AddComponent<PantoCompoundCollider>();
+        var collider = this.gameObject.AddComponent<PantoCompoundCollider>();
         
         // TODO: uncomment below
-        //collider.onLower = false;
+        collider.onLower = false;
     }
 
     void CalculateGridFromPlane()
