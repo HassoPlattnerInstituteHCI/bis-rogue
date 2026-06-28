@@ -33,7 +33,7 @@ ___
    - Press Play and move the Me-Handle (the upper handle). The player should move with it.
 
    **Connection problem?**
-   1. Select the **Panto** GameObject and verify that *Debug Mode* is disabled and the correct port is set.
+   1. Select the **Panto** GameObject and verify that *Debug Mode* is disabled and the correct port is set (follow port instructions on [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/)).
    2. If everything looks correct but it still doesn't connect, unplug the panto and plug it back in, or press Play a few more times.
    3. Open PyCharm and flash the firmware again [DualPanto Framework](https://github.com/HassoPlattnerInstituteHCI/dualpantoframework)
    4. Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.

@@ -36,17 +36,19 @@ public class PlayerRecoil : MonoBehaviour
     // applies recoil to the player away from the collision point
     async void ApplyRecoil(Vector3 collisionPoint)
     {
+        Vector3 currentPosition = Vector3.zero;
         // TODO: Get the current position of the player from the meHandle
-        Vector3 currentPosition = meHandle.GetPosition();
+        //currentPosition = 
 
-        // TODO: calculate the direction of the recoil (coming from the collision point to the current position)
-        Vector3 recoilDirection = (collisionPoint.normalized - currentPosition.normalized).normalized;
+        Vector3 recoilDirection = Vector3.zero;
+        // TODO: calculate the direction of the recoil (coming from the collision point to the current position) and normalize it
+        //recoilDirection = 
 
-        //strech the recoil direction by the recoil strength)
-        Vector3 finalRecoilDirection = currentPosition - recoilDirection * recoilStrength;
+        //TODO: uncomment the line below to stretch the recoil direction by the recoil strength
+        //Vector3 finalRecoilDirection = currentPosition - recoilDirection * recoilStrength;
 
         //TODO: Move the player to the new position using the meHandle.MoveToPosition method
-        await meHandle.MoveToPosition(finalRecoilDirection, recoilSpeed);
+        //await meHandle.
 
     }
 

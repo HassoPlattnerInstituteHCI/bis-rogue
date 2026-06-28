@@ -338,7 +338,6 @@ GameObject:
   - component: {fileID: 959453744}
   - component: {fileID: 959453745}
   - component: {fileID: 959453746}
-  - component: {fileID: 959453747}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -424,21 +423,6 @@ MonoBehaviour:
   spawnRoomInTopCenter: 1
   corridorPrefab: {fileID: 7081821655740613415, guid: 346a6666464974a41b501704fd1073ec, type: 3}
   corridorWidth: 0.05
---- !u!114 &959453747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959453738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c40145e82032241a8ca3f585dd118f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DualPantoToolkit.PantoCompoundCollider
-  onUpper: 1
-  onLower: 0
-  isPassable: 0
 --- !u!1 &970189445
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +576,6 @@ GameObject:
   - component: {fileID: 992375338}
   - component: {fileID: 992375341}
   - component: {fileID: 992375342}
-  - component: {fileID: 992375343}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -843,23 +826,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 992375329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbaed2525dcec69479e96519eb305a6f, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b8859269b8a4d5194fc44578765e23, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MeHandle
---- !u!114 &992375343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992375329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8a9bd962f1543c5b5a8052edf6ca17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRecoil
-  recoilStrength: 1.65
-  recoilSpeed: 3.89
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerCollisions
+  moveStep: 1
+  map: {fileID: 959453738}
+  stepCooldown: 0.15
 --- !u!1001 &1133860425
 PrefabInstance:
   m_ObjectHideFlags: 0

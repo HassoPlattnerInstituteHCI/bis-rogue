@@ -92,12 +92,14 @@ public class EnemyMovement : MonoBehaviour
         {
             // TODO: Switch to the LowerHandle before moving the enemy, for more information, see: https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/blob/develop/Documentation/documentation.md 
             // use: this.gameObject and set speed > 50f
-            await lowerHandle.SwitchTo(this.gameObject, 100.0f);
+            //await lowerHandle.
         }
 
+        Vector3 currentPlayerPosition = Vector3.zero; 
         // TODO: Get the current position of the player from the meHandle
         // for more information, see: https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/blob/develop/Documentation/documentation.md
-        Vector3 currentPlayerPosition = meHandle.GetPosition();
+        
+        //currentPlayerPosition = 
 
         if (Vector3.Distance(currentPlayerPosition, lastPlayerPosition) > movementThreshold)
         {
