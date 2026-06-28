@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using DualPantoToolkit;
 
 public class EnemyMovement : MonoBehaviour
 {
     [Range(0.0f, 10.0f)]
     public float speed = 5f;
+
+    public float movementThreshold = 0.03f; // Minimum distance to move before updating position
 
     private GameObject player;
 
@@ -16,12 +20,17 @@ public class EnemyMovement : MonoBehaviour
     //Room mesurements
     private Vector2 roomCenter;
     private Vector2 roomSize;
-    
+
     private float roomMaxX = 1000f;
     private float roomMinX = -1000f;
     private float roomMaxZ = 1000f;
     private float roomMinZ = -1000f;
     private float roomTolerance = 0.1f;
+
+
+    private UpperHandle meHandle;
+
+    private LowerHandle lowerHandle;
 
     void Start()
     {
@@ -30,6 +39,10 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.LogWarning("Player not found in scene.");
         }
+
+        // Get the UpperHandle and LowerHandle components from the Panto GameObject
+        meHandle = GameObject.Find("Panto").GetComponent<UpperHandle>();
+        lowerHandle = GameObject.Find("Panto").GetComponent<LowerHandle>();
     }
 
     void Update()
@@ -67,26 +80,41 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // move enemy towards player, if player is in range
-    private void MoveEnemy()
+    private async void MoveEnemy()
     {
+        if (meHandle == null) return;
 
         if (!CheckPlayerInRange())
         {
             return; // Player is out of range
         }
-
-        if (player.transform.position == lastPlayerPosition)
+        else
         {
-            return; // Player is not moving
+            // TODO: Switch to the LowerHandle before moving the enemy, for more information, see: https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/blob/develop/Documentation/documentation.md 
+            // use: this.gameObject and set speed > 50f
+            await lowerHandle.SwitchTo(this.gameObject, 100.0f);
         }
 
-        lastPlayerPosition = player.transform.position;
+        // TODO: Get the current position of the player from the meHandle
+        // for more information, see: https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/blob/develop/Documentation/documentation.md
+        Vector3 currentPlayerPosition = meHandle.GetPosition();
 
-        Vector3 direction = (lastPlayerPosition - this.transform.position).normalized;
-        float dt = Time.deltaTime;
+        if (Vector3.Distance(currentPlayerPosition, lastPlayerPosition) > movementThreshold)
+        {
+            lastPlayerPosition = currentPlayerPosition;
 
-        Vector3 nextPos = this.transform.position + direction * speed * dt;
-        this.transform.position = new Vector3(nextPos.x, 0, nextPos.z);
+            Vector3 direction = (currentPlayerPosition - transform.position).normalized;
+            float dt = Time.deltaTime;
+
+            Vector3 nextPos = transform.position + direction * speed * dt;
+            if (nextPos.x < roomMinX || nextPos.x > roomMaxX || nextPos.z < roomMinZ || nextPos.z > roomMaxZ)
+            {
+                // Out of bounds, do not move
+                return;
+            }
+            transform.position = nextPos;
+        }
+
     }
 
     // check if player is within room bounds plus tolerance
@@ -94,7 +122,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
         Vector3 playerPosLocal = player.transform.position;
-        
+
         if (playerPosLocal.x >= roomMinX - roomTolerance && playerPosLocal.x <= roomMaxX + roomTolerance &&
             playerPosLocal.z >= roomMinZ - roomTolerance && playerPosLocal.z <= roomMaxZ + roomTolerance)
         {

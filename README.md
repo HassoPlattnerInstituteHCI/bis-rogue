@@ -23,33 +23,41 @@ ___
 
 #### 0. Check
 
-- 0.1: Have you run `git submodule update --init --recursive` on this repository?
+- 0.1: Have you run `git submodule update --remote --recursive` on this repository?
 
-#### 1. Add ItemPickupSound to SoundManager
-   - Select the Manager in the Scene and go to SoundManager. There you will find a List of Sounds.
-     - Press `+` and give the sound a name (e.g. "ItemPickupSound", "HealSound").
-     - Add a sound clip to the item
-      <img src="docs/img/SoundTask1.png" height="600">
-  - Now we need to play the sound when a player picks up an item.
-     - **TODO**: go to `PlayerSimple.cs` and edit the TODO.
+#### 1. Connect the Player to the Me-Handle
 
-#### 2. Text-To-Speech
-   - Select the Manager in the Scene and go to RogueGameManager. 
-    - Enter a text (introductionText) you want to hear when starting the game
-      <img src="docs/img/SoundTask2.png" height="600">
-     - **TODO**: go to `RogueGameManager.cs` and edit the TODO.
+   - Select the **Player** in the Scene.
+   - Remove the `PlayerControllerCollisions.cs` script from it.
+   - Add the `MeHandle.cs` script in its place.
+   - Press Play and move the Me-Handle (the upper handle). The player should move with it.
 
-#### 3. TTS for every room
-   - Every room has a `RoomSpeechOnEntry` component, which speaks its `introductionText` (via TTS) when the player enters.
-   - **TODO**: go to `GridRoomSpawner.cs` and uncomment the line that sets `introductionText = $"Room {roomData.id}"` on each spawned room.
-   - Press Play and walk into a room. You should hear "Room \<id\>" announced when you enter.
- 
-#### 4. Speech Audio Clip
-- go to [luvvoice.com](https://luvvoice.com) or take your phone and create an audio introduction clip (mp3, wav)
-- import the sound into Unity by dropping it inside the Assets view. 
-- Add the clip to the SoundManager and give it a name.
-  <img src="docs/img/SoundTask1.png" height="600">
-- Select the manager in the scene again and add the name for the clip in the RogueGameManager.
- <img src="docs/img/SoundTask4.png" height="200">
-  
+   **Connection problem?**
+   1. Select the **Panto** GameObject and verify that *Debug Mode* is disabled and the correct port is set.
+   2. If everything looks correct but it still doesn't connect, unplug the panto and plug it back in, or press Play a few more times.
+   3. Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.
+
+#### 2. Render the room walls (PantoCompoundCollider)
+
+   - Select the **Map** and add the `PantoCompoundCollider.cs` script. Check **On Upper**.
+   - Press Play, wait for the scene to load, then press `E` to render the walls.
+
+   **Walls not rendering?**
+   1. While playing, the walls should appear as a black line. If they don't, check the panto collider you attached: is the right handle checked, are the Unity collider and panto collider set correctly, and is `isPassable` set to `false`?
+   2. If that still doesn't work, check the **Manager** GameObject and confirm `ObstacleManager.cs` is attached.
+
+   **Walls render but the panto doesn't move?**
+   - Check that the battery is inserted, charged, and that the panto's power switch (on the back) is turned on.
+   - Still stuck? Ask a TA or check the [DualPanto Toolkit](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/) installation and documentation.
+
+#### 3. Move the enemy with the It-Handle
+
+   - The enemy is controlled nearly similar as before, just with the position of the handle and a logic to get the handle to each enemy.
+   - Before starting, read up on the panto handle commands in the [DualPanto Documentation](https://github.com/HassoPlattnerInstituteHCI/unity-dualpanto-toolkit/blob/develop/Documentation/documentation.md).
+   - **TODO:** Open `EnemyMovement.cs` and complete the `TODO` inside.
+
+#### 4. Add player recoil
+
+   - Select the **Player** and attach the `PlayerRecoil.cs` component.
+   - **TODO:** Open `PlayerRecoil.cs` and complete the `TODO` inside.
 

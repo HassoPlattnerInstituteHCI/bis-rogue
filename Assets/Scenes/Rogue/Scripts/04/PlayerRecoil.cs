@@ -7,7 +7,7 @@ using System;
 
 public class PlayerRecoil : MonoBehaviour
 {
-   
+
     [SerializeField]
     [Range(0.0f, 10.0f)]
     private float recoilStrength = 3f;
@@ -32,16 +32,22 @@ public class PlayerRecoil : MonoBehaviour
             ApplyRecoil(collisionPoint);
         }
     }
-    
+
     // applies recoil to the player away from the collision point
-    async void ApplyRecoil(Vector3 collisionPoint){
-       
+    async void ApplyRecoil(Vector3 collisionPoint)
+    {
+        // TODO: Get the current position of the player from the meHandle
         Vector3 currentPosition = meHandle.GetPosition();
-        // calculate the direction of the recoil
-        Vector3 recoilDirection = (collisionPoint.normalized - currentPosition.normalized).normalized;    
-        // apply the recoil to meHandle
-        await meHandle.MoveToPosition(currentPosition + (recoilDirection * recoilStrength), recoilSpeed);
-        
+
+        // TODO: calculate the direction of the recoil (coming from the collision point to the current position)
+        Vector3 recoilDirection = (collisionPoint.normalized - currentPosition.normalized).normalized;
+
+        //strech the recoil direction by the recoil strength)
+        Vector3 finalRecoilDirection = currentPosition + recoilDirection * recoilStrength;
+
+        //TODO: Move the player to the new position using the meHandle.MoveToPosition method
+        await meHandle.MoveToPosition(finalRecoilDirection, recoilSpeed);
+
     }
-    
+
 }
