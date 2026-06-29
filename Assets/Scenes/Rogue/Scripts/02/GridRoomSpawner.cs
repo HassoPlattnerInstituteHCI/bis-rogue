@@ -97,7 +97,6 @@ public class GridRoomSpawner : MonoBehaviour
     {
         CalculateGridFromPlane();
         grid = new int[rows, columns];
-        //DrawGridWithIndices();
         CreateRooms();
         CreateCorridor();
 
