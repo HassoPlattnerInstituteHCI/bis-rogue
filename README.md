@@ -23,7 +23,7 @@ ___
 
 #### 0. Check
 
-- 0.1: Have you run `git submodule update --remote --recursive` on this repository?
+- 0.1: Have you run `git submodule update --remote --init --recursive` on this repository?
 
 #### 1. Connect the Player to the Me-Handle
 
